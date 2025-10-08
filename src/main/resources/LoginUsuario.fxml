@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoignUsuario">
+   <children>
+      <Label layoutX="36.0" layoutY="88.0" text="Nombre:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="TxfNombre" layoutX="104.0" layoutY="85.0" />
+      <TextField fx:id="TxfApellido" layoutX="105.0" layoutY="134.0" />
+      <TextField fx:id="TxfCorreo" layoutX="106.0" layoutY="188.0" />
+      <TextField fx:id="TxfDireccion" layoutX="107.0" layoutY="252.0" />
+      <Label layoutX="49.0" layoutY="138.0" text="Apellido:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="49.0" layoutY="192.0" text="Correo:" />
+      <Label layoutX="49.0" layoutY="256.0" text="Direccion:" />
+      <ComboBox fx:id="CboxMetodoPago" layoutX="368.0" layoutY="85.0" prefWidth="150.0" />
+      <Label layoutX="369.0" layoutY="42.0" prefHeight="18.0" prefWidth="150.0" text="Metodo de Pago" />
+      <Label layoutX="55.0" layoutY="307.0" text="Telefono" />
+      <TextField fx:id="TxfTelefono" layoutX="108.0" layoutY="303.0" />
+      <Button fx:id="BtnContinuar" layoutX="350.0" layoutY="265.0" mnemonicParsing="false" onAction="#OnContinuar" text="Continuar" />
+      <Button fx:id="BtnVolver" layoutX="486.0" layoutY="265.0" mnemonicParsing="false" onAction="#OnVolver" text="Volver" />
+   </children>
+</AnchorPane>
