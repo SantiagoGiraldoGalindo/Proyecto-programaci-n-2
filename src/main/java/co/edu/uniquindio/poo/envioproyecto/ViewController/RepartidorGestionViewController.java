@@ -1,5 +1,6 @@
 package co.edu.uniquindio.poo.envioproyecto.ViewController;
 
+import co.edu.uniquindio.poo.envioproyecto.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -22,7 +23,7 @@ public class RepartidorGestionViewController {
 
     }
     @FXML public void OnVolver (ActionEvent event) {
-
+        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Inicio.fxml", event);
     }
 
 }
