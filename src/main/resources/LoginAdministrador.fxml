@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="LoginAdministrador"
-            prefHeight="400.0" prefWidth="600.0" >
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.LoginAdministradorViewController">
+   <children>
+      <Label layoutX="226.0" layoutY="61.0" prefHeight="27.0" prefWidth="149.0" text="Bienvenido">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="TxfUsuario" layoutX="204.0" layoutY="153.0" />
+      <TextField fx:id="TxfContrasena" layoutX="204.0" layoutY="209.0" />
+      <Label layoutX="116.0" layoutY="157.0" text="Usuario:" />
+      <Label layoutX="116.0" layoutY="213.0" text="Contraseña:" />
+      <Button fx:id="BtnContinuar" layoutX="253.0" layoutY="279.0" mnemonicParsing="false" onAction="#OnContinuar" text="Continuar" />
+      <Button fx:id="BtnVolver" layoutX="253.0" layoutY="328.0" mnemonicParsing="false" onAction="#OnVolver" text="Volver" />
+   </children>
 </AnchorPane>

@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="AdministradorGestion"
-            prefHeight="400.0" prefWidth="600.0" >
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.AdministradorGestionViewController">
+   <children>
+      <Button fx:id="BtnGestionarU" layoutX="92.0" layoutY="252.0" mnemonicParsing="false" onAction="#OnGestionarU" text="Gestionar Usuarios" />
+      <Button fx:id="BtnGestionarR" layoutX="248.0" layoutY="252.0" mnemonicParsing="false" onAction="#OnGestionarR" text="Gestionar Repartidores" />
+      <Button fx:id="BtnGestionarE" layoutX="411.0" layoutY="252.0" mnemonicParsing="false" onAction="#OnGestionarE" text="Gestionar Envios" />
+      <Button fx:id="BtnPanel" layoutX="248.0" layoutY="295.0" mnemonicParsing="false" onAction="#OnPanel" prefHeight="26.0" prefWidth="138.0" text="Panel de metricas" />
+      <Button fx:id="BtnVolver" layoutX="291.0" layoutY="346.0" mnemonicParsing="false" onAction="#OnVolver" text="Volver" />
+      <Label layoutX="-28.0" layoutY="71.0" text="Label" />
+      <Label layoutX="180.0" layoutY="54.0" prefHeight="18.0" prefWidth="300.0" text="Administrador que desea hacer hoy?">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>

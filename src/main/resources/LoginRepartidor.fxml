@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.LoginRepartidorViewController">
+   <children>
+      <Button fx:id="BtnContinuar" layoutX="266.0" layoutY="282.0" mnemonicParsing="false" onAction="#OnContinuar" text="Continuar" />
+      <Button fx:id="BtnVolver" layoutX="266.0" layoutY="329.0" mnemonicParsing="false" onAction="#OnVolver" text="Volver" />
+      <Label layoutX="278.0" layoutY="51.0" text="Bienvenido" />
+      <Label layoutX="154.0" layoutY="149.0" text="Usuario:" />
+      <Label layoutX="154.0" layoutY="206.0" text="Contraseña:" />
+      <TextField fx:id="TxfUsuario" layoutX="218.0" layoutY="145.0" />
+      <TextField fx:id="TxfContrasena" layoutX="218.0" layoutY="202.0" />
+   </children>
 </AnchorPane>

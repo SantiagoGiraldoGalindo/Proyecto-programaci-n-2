@@ -134,7 +134,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                co.edu.uniquindio.poo.envioproyecto/co.edu.uniquindio.poo.envioproyecto.HelloApplication
+                                co.edu.uniquindio.poo.envioproyecto/co.edu.uniquindio.poo.envioproyecto.App
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
