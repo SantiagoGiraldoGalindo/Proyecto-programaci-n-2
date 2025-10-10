@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.GestionarEnviosViewController">
+   <children>
+      <TableView fx:id="TvEnvios" layoutX="54.0" layoutY="147.0" prefHeight="200.0" prefWidth="236.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <Button fx:id="BtnActualizar" layoutX="54.0" layoutY="79.0" mnemonicParsing="false" onAction="#OnActualizar" text="Actualizar" />
+      <Button fx:id="BtnEliminar" layoutX="146.0" layoutY="79.0" mnemonicParsing="false" onAction="#OnEliminar" text="Eliminar" />
+      <Button fx:id="BtnVolver" layoutX="238.0" layoutY="79.0" mnemonicParsing="false" onAction="#OnVolver" text="Volver" />
+   </children>
+</AnchorPane>

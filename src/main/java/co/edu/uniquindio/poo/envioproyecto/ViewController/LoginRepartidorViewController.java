@@ -1,9 +1,13 @@
 package co.edu.uniquindio.poo.envioproyecto.ViewController;
 
+import co.edu.uniquindio.poo.envioproyecto.Controller.LoginAdministradorController;
+import co.edu.uniquindio.poo.envioproyecto.Controller.LoginRepartidorController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+
+import static co.edu.uniquindio.poo.envioproyecto.App.cambiarVista;
 
 public class LoginRepartidorViewController {
 
@@ -17,6 +21,13 @@ public class LoginRepartidorViewController {
 
     }
     @FXML public void OnContinuar(ActionEvent event) {
+        String passwordIngresada = TxfContrasena.getText();
 
+        if (LoginRepartidorController.verificarContrasena(passwordIngresada)) {
+            cambiarVista("/co/edu/uniquindio/poo/envioproyecto/RepartidorGestion.fxml", event);
+        } else {
+            System.out.println("Contraseña incorrecta");
+        }
     }
-}
+    }
+
