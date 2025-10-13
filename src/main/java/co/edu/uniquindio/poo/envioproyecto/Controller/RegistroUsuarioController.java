@@ -10,7 +10,7 @@ public class RegistroUsuarioController {
     private final List<Usuario> usuarios= new ArrayList<Usuario>();
 
     public RegistroUsuarioController() {
-        
+
     }
 
 
