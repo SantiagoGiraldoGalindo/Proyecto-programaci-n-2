@@ -1,5 +1,6 @@
 package co.edu.uniquindio.poo.envioproyecto.ViewController;
 
+import co.edu.uniquindio.poo.envioproyecto.App;
 import co.edu.uniquindio.poo.envioproyecto.Controller.LoginAdministradorController;
 import co.edu.uniquindio.poo.envioproyecto.Controller.LoginRepartidorController;
 import javafx.event.ActionEvent;
@@ -18,7 +19,7 @@ public class LoginRepartidorViewController {
     @FXML private Button BtnContinuar;
 
     @FXML public void OnVolver(ActionEvent event) {
-
+        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Inicio.fxml",event);
     }
     @FXML public void OnContinuar(ActionEvent event) {
         String passwordIngresada = TxfContrasena.getText();
