@@ -14,13 +14,14 @@
          </font>
       </Label>
       <TextField fx:id="TxfNombre" layoutX="225.0" layoutY="85.0" />
-      <TextField fx:id="TxfApellido" layoutX="225.0" layoutY="144.0" />
+      <TextField fx:id="TxfIdUsuario" layoutX="225.0" layoutY="144.0" />
       <Label layoutX="131.0" layoutY="147.0" text="IdUsuario">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="BtnContinuar" layoutX="210.0" layoutY="231.0" mnemonicParsing="false" onAction="#OnContinuar" text="Continuar" />
-      <Button fx:id="BtnVolver" layoutX="344.0" layoutY="231.0" mnemonicParsing="false" onAction="#OnVolver" prefHeight="26.0" prefWidth="54.0" text="Volver" />
+      <Button fx:id="BtnIniciarSesion" layoutX="257.0" layoutY="231.0" mnemonicParsing="false" onAction="#OnContinuar" text="Iniciar Sesion" />
+      <Button fx:id="BtnVolver" layoutX="510.0" layoutY="21.0" mnemonicParsing="false" onAction="#OnVolver" prefHeight="26.0" prefWidth="54.0" text="Volver" />
+      <Button fx:id="BtnAbrirRegistrar" layoutX="262.0" layoutY="295.0" mnemonicParsing="false" onAction="#OnAbrirRegistrar" text="Registrarse" />
    </children>
 </AnchorPane>

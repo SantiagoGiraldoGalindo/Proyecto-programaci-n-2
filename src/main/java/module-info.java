@@ -10,6 +10,9 @@ module co.edu.uniquindio.poo.envioproyecto {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires javafx.graphics;
+    requires java.desktop;
+
     exports co.edu.uniquindio.poo.envioproyecto;
     opens co.edu.uniquindio.poo.envioproyecto to javafx.fxml;
     opens co.edu.uniquindio.poo.envioproyecto.ViewController to javafx.fxml;
