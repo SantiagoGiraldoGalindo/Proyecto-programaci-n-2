@@ -46,10 +46,12 @@ public class LoginUsuarioViewController {
         String passwordIngresada = TxfIdUsuario.getText();
 
         if (LoginUsuarioController.verificarContrasena(passwordIngresada)) {
-            cambiarVista("/co/edu/uniquindio/poo/envioproyecto/UsuarioGestion.fxml", event);
+            System.out.println("Inicio de sesión correcto");
+            App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/UsuarioGestion.fxml", event);
         } else {
-            System.out.println("Contraseña incorrecta");
+            System.out.println(" Contraseña incorrecta o usuario no registrado");
         }
+        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Envios.fxml", event);
     }
 
     @FXML

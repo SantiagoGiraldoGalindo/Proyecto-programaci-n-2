@@ -7,12 +7,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoginUsuarioController {
-
-    private static final String contrasena = "1234";
+    private static String contrasenaUsuario;
+    public static void setContrasenaUsuario(String idUsuario) {
+        contrasenaUsuario = idUsuario;
+    }
 
 
     public static boolean verificarContrasena(String passwordIngresada) {
-
-        return contrasena.equals(passwordIngresada);
+        if (contrasenaUsuario == null) {
+            System.out.println("⚠️ No hay contraseña configurada (usuario no registrado).");
+            return false;
+        }
+        return contrasenaUsuario.equals(passwordIngresada);
     }
 }

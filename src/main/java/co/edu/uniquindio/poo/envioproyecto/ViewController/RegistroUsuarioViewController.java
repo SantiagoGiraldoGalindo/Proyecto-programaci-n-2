@@ -17,16 +17,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
-    public class RegistroUsuarioViewController {
 
+public class RegistroUsuarioViewController {
+        private GestionarUsuariosViewController gestionarUsuariosViewController;
         private App app;
         private RegistroUsuarioController registroUsuarioController;
-        private ObservableList<Usuario> usuarios;
+        private ObservableList<Usuario> usuariosFx;
 
 
         public RegistroUsuarioViewController( ) {
             this.registroUsuarioController = new RegistroUsuarioController();
-            this.usuarios = FXCollections.observableArrayList();
+            this.usuariosFx = FXCollections.observableArrayList();
             this.app = app;
         }
 
@@ -66,26 +67,42 @@ import javafx.scene.control.TextField;
 
 
 
-        @FXML
-            void OnRegistrar(ActionEvent event) {
-            String Nombre = TxfNombre.getText();
-            String Apellido = TxfApellido.getText();
-            String Correo = TxfCorreo.getText();
-            String Direccion = TxfDireccion.getText();
-            String Telefono = TxfTelefono.getText();
-            int IdUsuario = Integer.parseInt(TxfIdUsuario.getText());
-            MetodoPago MetodoPago = CboxMetodoPago.getSelectionModel().getSelectedItem();
-            if (registroUsuarioController.RegistrarUsuario(Nombre,Apellido,Correo,Direccion,Telefono,IdUsuario,MetodoPago)) {
+    @FXML
+    void OnRegistrar(ActionEvent event) {
+        try {
+            String nombre = TxfNombre.getText();
+            String apellido = TxfApellido.getText();
+            String correo = TxfCorreo.getText();
+            String direccion = TxfDireccion.getText();
+            String telefono = TxfTelefono.getText();
+            int idUsuario = Integer.parseInt(TxfIdUsuario.getText());
+            MetodoPago metodoPago = CboxMetodoPago.getSelectionModel().getSelectedItem();
+            LoginUsuarioController.setContrasenaUsuario(String.valueOf(idUsuario));
+
+            if (registroUsuarioController.RegistrarUsuario(nombre, apellido, correo, direccion, telefono, idUsuario, metodoPago)) {
+
+
+
+
+
                 mostrarMensaje("Usuario registrado exitosamente.");
+
+
             } else {
                 mostrarMensaje("Ya existe un Usuario con ese Id.");
             }
 
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarMensaje("Error al registrar usuario: " + e.getMessage());
         }
+    }
 
-        @FXML
+
+
+    @FXML
         void OnVolver(ActionEvent event) {
-
+          App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/LoginUsuario.fxml",event);
         }
 
         @FXML

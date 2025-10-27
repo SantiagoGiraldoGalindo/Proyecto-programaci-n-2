@@ -2,16 +2,16 @@ package co.edu.uniquindio.poo.envioproyecto.Controller;
 
 import co.edu.uniquindio.poo.envioproyecto.model.MetodoPago;
 import co.edu.uniquindio.poo.envioproyecto.model.Usuario;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RegistroUsuarioController {
-    private final List<Usuario> usuarios= new ArrayList<Usuario>();
+    public static ObservableList<Usuario> usuarios = FXCollections.observableArrayList();
 
-    public RegistroUsuarioController() {
 
-    }
 
 
     public boolean RegistrarUsuario(String nombre, String apellido, String correo, String telefono, String direccion, int IdUsuario, MetodoPago MetodoPago) {
@@ -29,5 +29,9 @@ public class RegistroUsuarioController {
             }
         }
         return null;
+    }
+
+    public List<Usuario> getUsuarios() {
+        return usuarios;
     }
 }
