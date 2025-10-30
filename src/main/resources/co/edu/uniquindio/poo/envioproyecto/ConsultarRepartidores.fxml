@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.GestionarUsuariosViewController">
+    <children>
+        <TableView fx:id="TvUsuario" layoutX="14.0" layoutY="173.0" prefHeight="220.0" prefWidth="567.0">
+            <columns>
+                <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombre" />
+                <TableColumn fx:id="colApellido" prefWidth="75.0" text="Apellidos" />
+                <TableColumn fx:id="colId" prefWidth="75.0" text="id" />
+                <TableColumn fx:id="colCorreo" prefWidth="75.0" text="Correo" />
+                <TableColumn fx:id="colTelefono" prefWidth="75.0" text="Telefono" />
+                <TableColumn fx:id="colDireccion" prefWidth="75.0" text="Direccion" />
+                <TableColumn fx:id="colMetodoPago" prefWidth="75.0" text="Metodo pago" />
+            </columns>
+        </TableView>
+        <Button fx:id="BtnActualizae" layoutX="45.0" layoutY="75.0" mnemonicParsing="false" onAction="#OnActualizar" text="Actualizar" />
+        <Button fx:id="BtnEliminar" layoutX="119.0" layoutY="75.0" mnemonicParsing="false" onAction="#OnEliminar" text="Eliminar" />
+        <Button fx:id="BtnAgregar" layoutX="195.0" layoutY="75.0" mnemonicParsing="false" onAction="#OnAgregar" text="Agregar" />
+        <Button fx:id="BtnVolver" layoutX="512.0" layoutY="26.0" mnemonicParsing="false" onAction="#OnVolver" text="Volver" />
+    </children>
+</AnchorPane>

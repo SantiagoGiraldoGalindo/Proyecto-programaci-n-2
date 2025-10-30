@@ -1,5 +1,8 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Repartidor {
 
     private String nombre;
@@ -7,6 +10,7 @@ public class Repartidor {
     private int idRepartidor;
     private String correo;
     private Estado estado;
+    private List<Envios> listEnvios;
 
     public Repartidor(String nombre, String cedula, int idRepartidor, String correo,Estado estado) {
         this.nombre = nombre;
@@ -14,6 +18,7 @@ public class Repartidor {
         this.idRepartidor = idRepartidor;
         this.correo = correo;
         this.estado = estado;
+        this.listEnvios = new ArrayList<Envios>();
 
     }
 
@@ -56,4 +61,24 @@ public class Repartidor {
     public void setEstado(Estado estado) {
         this.estado = estado;
     }
+
+    public void setListEnvios(List<Envios> listEnvios) {
+        this.listEnvios = listEnvios;
+    }
+
+    public List<Envios> getListEnvios() {
+        return listEnvios;
+    }
+
+    public void consultarEnviosAsignados() {
+        for(Envios envio : listEnvios) {
+            System.out.println("ID: " + envio.getIdEnvio() + ", Destino: " + envio.getDestino());
+        }
+    }
+
+    public Estado disponibilidad() {
+        return this.getEstado();
+    }
+
+
 }

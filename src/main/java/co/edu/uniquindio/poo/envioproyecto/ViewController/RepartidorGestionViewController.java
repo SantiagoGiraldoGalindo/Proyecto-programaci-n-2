@@ -5,6 +5,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
+import static co.edu.uniquindio.poo.envioproyecto.App.cambiarVista;
+
 public class RepartidorGestionViewController {
 
     @FXML
@@ -13,8 +15,8 @@ public class RepartidorGestionViewController {
     @FXML private Button BtnCambiarD;
     @FXML private Button BtnGestionarD;
 
-    @FXML public void OnConsultarR (ActionEvent event) {
-
+    @FXML public void OnConsultarEnv (ActionEvent event) {
+        cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Inicio.fxml", event);
     }
     @FXML public void OnCambiarD (ActionEvent event) {
 

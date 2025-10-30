@@ -11,6 +11,7 @@ public final class EmpresaEnvios {
     private List<Paquete> listPaquete;
     private List<Pago> listPago;
     private List<Ubicacion> listUbicacion;
+    private List<Repartidor> listRepartidor;
 
     private EmpresaEnvios (String nombre, String ubicacion) {
         this.nombre = nombre;
@@ -19,7 +20,7 @@ public final class EmpresaEnvios {
         this.listPaquete = new ArrayList<>();
         this.listPago = new ArrayList<>();
         this.listUbicacion = new ArrayList<>();
-
+        this.listRepartidor = new ArrayList<>();
 
     }
 
@@ -84,5 +85,40 @@ public final class EmpresaEnvios {
 
     public void setListUbicacion(List<Ubicacion> listUbicacion) {
         this.listUbicacion = listUbicacion;
+    }
+
+    public List<Repartidor> getListRepartidor() {
+        return listRepartidor;
+    }
+
+    public void setListRepartidor(List<Repartidor> listRepartidor) {
+        this.listRepartidor = listRepartidor;
+    }
+
+    public void agregarRepartidor(Repartidor repartidor) {
+        listRepartidor.add(repartidor);
+    }
+
+    public void eliminarRepartidor(Repartidor repartidor) {
+        listRepartidor.remove(repartidor);
+    }
+
+    public void consultarRepartidor(Repartidor repartidor) {
+        for (Repartidor r : listRepartidor) {
+            if (r.getIdRepartidor() == repartidor.getIdRepartidor()) {
+                System.out.println("Repartidor encontrado: " + r.getNombre());
+                return;
+            }
+        }
+        System.out.println("Repartidor no encontrado.");
+    }
+
+    public void consultarRepartidoresDisponibles() {
+        System.out.println("Repartidores disponibles:");
+        for (Repartidor r : listRepartidor) {
+            if (r.getEstado() == Estado.ACTIVO) {
+                System.out.println(" - " + r.getNombre());
+            }
+        }
     }
 }

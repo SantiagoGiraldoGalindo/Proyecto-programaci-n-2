@@ -12,6 +12,8 @@ module co.edu.uniquindio.poo.envioproyecto {
     requires com.almasb.fxgl.all;
     requires javafx.graphics;
     requires java.desktop;
+    requires co.edu.uniquindio.poo.envioproyecto;
+    requires javafx.base;
 
 
     exports co.edu.uniquindio.poo.envioproyecto;

@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.RepartidorGestionViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.RepartidorGestionViewController">
    <children>
-      <Label layoutX="239.0" layoutY="62.0" text="Repartidor que desea hacer hoy?">
+      <Label layoutX="169.0" layoutY="106.0" text="Repartidor que desea hacer hoy?">
          <font>
             <Font size="18.0" />
          </font></Label>
       <Button fx:id="BtnVolver" layoutX="274.0" layoutY="320.0" mnemonicParsing="false" onAction="#OnVolver" text="Volver" />
-      <Button fx:id="BtnConsultarR" layoutX="70.0" layoutY="255.0" mnemonicParsing="false" onAction="#OnConsultarR" prefHeight="26.0" prefWidth="142.0" text="Consultar Repartidores" />
-      <Button fx:id="BtnCambiarD" layoutX="229.0" layoutY="255.0" mnemonicParsing="false" onAction="#OnCambiarD" prefHeight="26.0" prefWidth="149.0" text="Cambiar disponibilidad" />
-      <Button fx:id="BtnConsultarE" layoutX="398.0" layoutY="255.0" mnemonicParsing="false" onAction="#OnConsultarE" text="Consultar Envios" />
+      <Button fx:id="BtnConsultarEnv" layoutX="70.0" layoutY="255.0" mnemonicParsing="false" onAction="#OnConsultarEnv" prefHeight="39.0" prefWidth="244.0" text="Consultar Envios Asignados" />
+      <Button fx:id="BtnCambiarEstado" layoutX="349.0" layoutY="255.0" mnemonicParsing="false" onAction="#OnCambiarEstadp" prefHeight="39.0" prefWidth="178.0" text="Cambiar Estado" />
    </children>
 </AnchorPane>
