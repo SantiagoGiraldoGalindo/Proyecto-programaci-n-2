@@ -20,6 +20,7 @@ public class EnviosViewController {
         App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/CrearEnvios.fxml", event);
     }
     @FXML public void OnConsultar(ActionEvent event) {
+        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/ConsultarEnvios.fxml", event);
 
     }
 }
