@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo.envioproyecto.ViewController;
+package co.edu.uniquindio.poo.envioproyecto.ViewController.Usuario;
 
 import co.edu.uniquindio.poo.envioproyecto.App;
 import co.edu.uniquindio.poo.envioproyecto.Controller.LoginUsuarioController;
@@ -8,8 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import static co.edu.uniquindio.poo.envioproyecto.App.cambiarVista;
 
 public class LoginUsuarioViewController {
 
@@ -38,7 +36,7 @@ public class LoginUsuarioViewController {
 
     @FXML
     public void OnAbrirRegistrar(ActionEvent event) throws Exception {
-        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/RegistroUsuario.fxml", event);
+        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Usuario/RegistroUsuario.fxml", event);
     }
 
     @FXML
@@ -51,7 +49,7 @@ public class LoginUsuarioViewController {
         } else {
             System.out.println(" Contraseña incorrecta o usuario no registrado");
         }
-        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Envios.fxml", event);
+        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Usuario/Envios.fxml", event);
     }
 
     @FXML

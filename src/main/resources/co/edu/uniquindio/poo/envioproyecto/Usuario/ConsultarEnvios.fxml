@@ -3,15 +3,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.ConsultarEnviosViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.Usuario.ConsultarEnviosViewController">
    <children>
-      <TableView fx:id="TvEnvios" layoutX="27.0" layoutY="152.0" prefHeight="238.0" prefWidth="416.0">
+      <TableView fx:id="TvEnvios" layoutX="27.0" layoutY="152.0" prefHeight="238.0" prefWidth="506.0">
         <columns>
           <TableColumn fx:id="TcIdEnvio" prefWidth="75.0" text="IdEnvio" />
           <TableColumn fx:id="TcDestino" prefWidth="75.0" text="Destino" />
             <TableColumn fx:id="TcPeso" prefWidth="75.0" text="Peso" />
             <TableColumn fx:id="TcTamano" prefWidth="75.0" text="Tamaño" />
             <TableColumn fx:id="TcFecha" prefWidth="113.20001220703125" text="Fecha" />
+            <TableColumn fx:id="TcEstado" prefWidth="75.0" text="Estado" />
         </columns>
       </TableView>
       <Button fx:id="BtnVolver" layoutX="523.0" layoutY="37.0" mnemonicParsing="false" onAction="#OnVolver" text="Volver" />

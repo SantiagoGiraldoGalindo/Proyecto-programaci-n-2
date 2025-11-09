@@ -1,6 +1,5 @@
 package co.edu.uniquindio.poo.envioproyecto;
 
-import co.edu.uniquindio.poo.envioproyecto.ViewController.RegistroUsuarioViewController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;

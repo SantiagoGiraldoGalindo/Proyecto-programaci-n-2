@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.Usuario.GestionarPaqueteViewController">
+   <children>
+      <Label layoutX="286.0" layoutY="36.0" text="Paquete">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="TxfPeso" layoutX="95.0" layoutY="107.0" />
+      <TextField fx:id="TxfVolumen" layoutX="96.0" layoutY="154.0" />
+      <TextField fx:id="TxfTamano" layoutX="96.0" layoutY="200.0" />
+      <CheckBox layoutX="110.0" layoutY="275.0" mnemonicParsing="false" text="Prioridad" />
+      <Button fx:id="BtnPagar" layoutX="274.0" layoutY="329.0" mnemonicParsing="false" onAction="#OnPagar" text="Pagar" />
+      <Button fx:id="BtnVolver" layoutX="515.0" layoutY="36.0" mnemonicParsing="false" onAction="#OnVolver" text="Volver" />
+      <Label layoutX="29.0" layoutY="111.0" text="Peso" />
+      <Label layoutX="36.0" layoutY="158.0" text="Volumen" />
+      <Label layoutX="36.0" layoutY="217.0" text="Tamaño" />
+   </children>
+</AnchorPane>

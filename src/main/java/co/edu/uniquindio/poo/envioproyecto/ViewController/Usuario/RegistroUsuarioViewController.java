@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo.envioproyecto.ViewController;
+package co.edu.uniquindio.poo.envioproyecto.ViewController.Usuario;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import co.edu.uniquindio.poo.envioproyecto.App;
 import co.edu.uniquindio.poo.envioproyecto.Controller.LoginUsuarioController;
 import co.edu.uniquindio.poo.envioproyecto.Controller.RegistroUsuarioController;
+import co.edu.uniquindio.poo.envioproyecto.ViewController.Admin.GestionarUsuariosViewController;
 import co.edu.uniquindio.poo.envioproyecto.model.MetodoPago;
 import co.edu.uniquindio.poo.envioproyecto.model.Usuario;
 import javafx.collections.FXCollections;
@@ -102,7 +103,7 @@ public class RegistroUsuarioViewController {
 
     @FXML
         void OnVolver(ActionEvent event) {
-          App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/LoginUsuario.fxml",event);
+          App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Usuario/LoginUsuario.fxml",event);
         }
 
         @FXML

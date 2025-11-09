@@ -12,15 +12,15 @@ public class InicioViewController {
     @FXML private Button BtnRepartidor;
 
     @FXML public void OnRegistroUsuario(ActionEvent event) {
-        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/LoginUsuario.fxml", event);
+        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Usuario/LoginUsuario.fxml", event);
 
     }
     @FXML public void OnloginAdministrador(ActionEvent event) {
-        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/LoginAdministrador.fxml", event);
+        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Admin/LoginAdministrador.fxml", event);
 
     }
     @FXML public void OnLoginRepartidor(ActionEvent event) {
-        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/LoginRepartidor.fxml", event);
+        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Repartidor/LoginRepartidor.fxml", event);
 
     }
 

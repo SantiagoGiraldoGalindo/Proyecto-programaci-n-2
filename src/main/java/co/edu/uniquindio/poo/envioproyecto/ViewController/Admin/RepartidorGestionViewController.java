@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo.envioproyecto.ViewController;
+package co.edu.uniquindio.poo.envioproyecto.ViewController.Admin;
 
 import co.edu.uniquindio.poo.envioproyecto.App;
 import javafx.event.ActionEvent;

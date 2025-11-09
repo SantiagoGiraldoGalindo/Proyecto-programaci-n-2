@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo.envioproyecto.ViewController;
+package co.edu.uniquindio.poo.envioproyecto.ViewController.Admin;
 
 import co.edu.uniquindio.poo.envioproyecto.App;
 import co.edu.uniquindio.poo.envioproyecto.Controller.GestionarUsuariosController;
@@ -100,6 +100,6 @@ public class GestionarUsuariosViewController {
         }
     }
     @FXML public void OnVolver(ActionEvent event) {
-        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/AdministradorGestion.fxml",event);
+        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Admin/AdministradorGestion.fxml",event);
     }
 }

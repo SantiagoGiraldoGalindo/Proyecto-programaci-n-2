@@ -1,11 +1,9 @@
-package co.edu.uniquindio.poo.envioproyecto.ViewController;
+package co.edu.uniquindio.poo.envioproyecto.ViewController.Usuario;
 
 import co.edu.uniquindio.poo.envioproyecto.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-
-import static co.edu.uniquindio.poo.envioproyecto.App.cambiarVista;
 
 public class EnviosViewController {
 
@@ -17,10 +15,10 @@ public class EnviosViewController {
         App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Inicio.fxml", event);
     }
     @FXML public void OnPedir(ActionEvent event) {
-        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/CrearEnvios.fxml", event);
+        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Usuario/CrearEnvios.fxml", event);
     }
     @FXML public void OnConsultar(ActionEvent event) {
-        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/ConsultarEnvios.fxml", event);
+        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Usuario/ConsultarEnvios.fxml", event);
 
     }
 }

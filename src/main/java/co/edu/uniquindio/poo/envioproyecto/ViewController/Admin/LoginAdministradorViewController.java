@@ -1,8 +1,6 @@
-package co.edu.uniquindio.poo.envioproyecto.ViewController;
+package co.edu.uniquindio.poo.envioproyecto.ViewController.Admin;
 
-import co.edu.uniquindio.poo.envioproyecto.App;
 import co.edu.uniquindio.poo.envioproyecto.Controller.LoginAdministradorController;
-import co.edu.uniquindio.poo.envioproyecto.Controller.LoginRepartidorController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,25 +8,27 @@ import javafx.scene.control.TextField;
 
 import static co.edu.uniquindio.poo.envioproyecto.App.cambiarVista;
 
-public class LoginRepartidorViewController {
-
+public class LoginAdministradorViewController {
     @FXML
     private TextField TxfUsuario;
-    @FXML private TextField TxfContrasena;
+    @FXML private  TextField TxfContrasena;
     @FXML private Button BtnVolver;
     @FXML private Button BtnContinuar;
 
     @FXML public void OnVolver(ActionEvent event) {
-        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Inicio.fxml",event);
+        cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Inicio.fxml", event);
     }
     @FXML public void OnContinuar(ActionEvent event) {
         String passwordIngresada = TxfContrasena.getText();
 
-        if (LoginRepartidorController.verificarContrasena(passwordIngresada)) {
-            cambiarVista("/co/edu/uniquindio/poo/envioproyecto/RepartidorGestion.fxml", event);
+        if (LoginAdministradorController.verificarContrasena(passwordIngresada)) {
+            cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Admin/AdministradorGestion.fxml", event);
         } else {
             System.out.println("Contraseña incorrecta");
         }
     }
     }
+
+
+
 

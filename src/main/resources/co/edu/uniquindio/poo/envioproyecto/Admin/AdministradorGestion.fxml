@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.AdministradorGestionViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.Admin.AdministradorGestionViewController">
    <children>
       <Button fx:id="BtnGestionarU" layoutX="92.0" layoutY="252.0" mnemonicParsing="false" onAction="#OnGestionarU" text="Gestionar Usuarios" />
       <Button fx:id="BtnGestionarR" layoutX="248.0" layoutY="252.0" mnemonicParsing="false" onAction="#OnGestionarR" text="Gestionar Repartidores" />

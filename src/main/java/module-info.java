@@ -12,7 +12,7 @@ module co.edu.uniquindio.poo.envioproyecto {
     requires com.almasb.fxgl.all;
     requires javafx.graphics;
     requires java.desktop;
-    requires co.edu.uniquindio.poo.envioproyecto;
+
     requires javafx.base;
 
 
@@ -24,4 +24,7 @@ module co.edu.uniquindio.poo.envioproyecto {
 
 
     opens co.edu.uniquindio.poo.envioproyecto.model to javafx.base;
+    opens co.edu.uniquindio.poo.envioproyecto.ViewController.Admin to javafx.fxml;
+    opens co.edu.uniquindio.poo.envioproyecto.ViewController.Usuario to javafx.fxml;
+    opens co.edu.uniquindio.poo.envioproyecto.ViewController.Repartidor to javafx.fxml;
 }
