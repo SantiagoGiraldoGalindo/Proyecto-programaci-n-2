@@ -20,6 +20,6 @@ public class GestionarPaqueteViewController {
         App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Usuario/CrearEnvios.fxml",event);
     }
     @FXML public void OnPagar(ActionEvent event) {
-
+App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Usuario/Pagar.fxml",event);
     }
 }
