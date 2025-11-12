@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.envioproyecto.ViewController.Usuario;
 
 import co.edu.uniquindio.poo.envioproyecto.App;
+import co.edu.uniquindio.poo.envioproyecto.Controller.EnviosService;
 import co.edu.uniquindio.poo.envioproyecto.Controller.PagoController;
 import co.edu.uniquindio.poo.envioproyecto.model.*;
 import javafx.collections.FXCollections;
@@ -107,17 +108,13 @@ public class PagarViewController implements Initializable {
             lblResultado.setText("Error: " + e.getMessage());
             lblResultado.setStyle("-fx-text-fill: red;");
         }
-    }
 
+
+        }
     @FXML
     void OnVolver(ActionEvent event) {
         App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Usuario/Envios.fxml", event);
     }
 
-    public void setUsuarioActual(Usuario usuario) {
-        this.usuarioActual = usuario;
-        if (comboMetodoPago.getValue() == null && usuario != null && usuario.getMetodoPago() != null) {
-            comboMetodoPago.getSelectionModel().select(usuario.getMetodoPago());
-        }
     }
-}
+
