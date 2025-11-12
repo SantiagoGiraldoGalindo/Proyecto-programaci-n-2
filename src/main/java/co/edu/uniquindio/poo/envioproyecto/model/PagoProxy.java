@@ -1,86 +1,38 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
+
+
 public class PagoProxy {
-    private double saldoDisponible;
-    private int reintentos;
-    private final int REINTENTOS_MAXIMOS = 3;
-    
-    public PagoProxy(double saldoDisponible) {
-        this.saldoDisponible = saldoDisponible;
-        this.reintentos = 0;
-    }
-    
+    private int reintentos = 0;
+    private static final int MAX_REINTENTOS = 3;
+
     /**
-     * Procesa el pago aplicando validaciones antes de delegar a Strategy
-     * @param estrategia Estrategia de pago a usar
-     * @param monto Monto a pagar
+     * Método principal del Proxy: valida y delega a ContextoPago (sin interfaz)
+     * @param estrategia La IPagoStrategy seleccionada (TARJETA, etc.)
+     * @param monto Monto del pago
      * @param fecha Fecha del pago
-     * @return Resultado del procesamiento
+     * @return Mensaje de resultado (error si inválido, o delegación si OK)
      */
     public String procesarPago(IPagoStrategy estrategia, double monto, String fecha) {
-        // Validación 1: Verificar que haya estrategia
-        if (estrategia == null) {
-            return "Proxy: Error - No hay estrategia de pago seleccionada";
+        // Validaciones generales del Proxy (sin saldo fijo)
+        if (monto <= 0) {
+            return "Error Proxy: Monto debe ser positivo.";
         }
-        
-        // Validación 2: Verificar fondos disponibles
-        if (!verificarFondos(monto)) {
-            return "Proxy: Pago rechazado - Fondos insuficientes. Saldo disponible: $" + saldoDisponible;
+        if (!fecha.matches("\\d{4}-\\d{2}-\\d{2}")) {
+            return "Error Proxy: Fecha inválida (use YYYY-MM-DD).";
         }
-        
-        // Validación 3: Verificar fecha válida
-        if (!verificarFecha(fecha)) {
-            return "Proxy: Pago rechazado - Fecha inválida";
+        if (reintentos >= MAX_REINTENTOS) {
+            return "Error Proxy: Máximo de reintentos (" + MAX_REINTENTOS + ") alcanzado.";
         }
-        
-        // Validación 4: Verificar número de reintentos
-        if (reintentos >= REINTENTOS_MAXIMOS) {
-            return "Proxy: Pago rechazado - Número máximo de reintentos alcanzado";
-        }
-        
-        // Si todas las validaciones pasan, delegar a Strategy
+
+        // Delegar directamente al ContextoPago (envuelve la Strategy)
+        reintentos++;  // Control de fallos
         ContextoPago contexto = new ContextoPago(estrategia);
-        String resultado = contexto.ejecutarPago(monto, fecha);
-        
-        // Si el pago fue exitoso, actualizar saldo
-        if (resultado.contains("exitosamente")) {
-            this.saldoDisponible -= monto;
-            this.reintentos = 0; // Resetear reintentos
-            return "Proxy: " + resultado + " | Saldo restante: $" + saldoDisponible;
-        } else {
-            this.reintentos++;
-            return "Proxy: " + resultado;
-        }
+        return "Validación Proxy OK. " + contexto.ejecutarPago(monto, fecha);
     }
-    
-    /**
-     * Verifica si hay fondos suficientes
-     */
-    private boolean verificarFondos(double monto) {
-        return monto > 0 && monto <= saldoDisponible;
-    }
-    
-    /**
-     * Verifica si la fecha es válida (formato YYYY-MM-DD)
-     */
-    private boolean verificarFecha(String fecha) {
-        return fecha != null && !fecha.isEmpty() && 
-               fecha.matches("\\d{4}-\\d{2}-\\d{2}");
-    }
-    
-    public double getSaldoDisponible() {
-        return saldoDisponible;
-    }
-    
-    public void setSaldoDisponible(double saldoDisponible) {
-        this.saldoDisponible = saldoDisponible;
-    }
-    
-    public int getReintentos() {
-        return reintentos;
-    }
-    
-    public void resetearReintentos() {
+
+    // Método helper para reset reintentos (opcional, llamar desde Controller)
+    public void resetReintentos() {
         this.reintentos = 0;
     }
 }

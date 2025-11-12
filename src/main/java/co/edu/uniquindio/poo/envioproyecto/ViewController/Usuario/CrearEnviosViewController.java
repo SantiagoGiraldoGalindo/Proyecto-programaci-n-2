@@ -22,6 +22,7 @@ public class CrearEnviosViewController {
 
     }
     @FXML public void OnGestionarPaquete (ActionEvent event) {
+
         App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Usuario/GestionarPaquete.fxml", event);
 
     }
