@@ -1,48 +1,19 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
-public class Email {
-    private String fecha;
-    private String hora;
-    private Paquete paquete;
-    private Envios envios;
-
-    public Email(String fecha, String hora, Paquete paquete, Envios envios) {
-        this.fecha = fecha;
-        this.hora = hora;
-        this.paquete = paquete;
-        this.envios = envios;
-
+public class Email extends NotificacionBase {
+    public Email(String fecha, String hora, Envios envios, Paquete paquete) {
+        super(fecha, hora, envios, paquete);
     }
 
-    public String getFecha() {
-        return fecha;
+    @Override
+    public String EnviarNotificacion() {
+        return "Enviando EMAIL: " + asunto() + ". " + descripcion();
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
+    @Override
+    public String asunto() {
 
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
-
-    public Paquete getPaquete() {
-        return paquete;
-    }
-
-    public void setPaquete(Paquete paquete) {
-        this.paquete = paquete;
-    }
-
-    public Envios getEnvios() {
-        return envios;
-    }
-
-    public void setEnvios(Envios envios) {
-        this.envios = envios;
+        return "Envío por Email para: " + envios.getIdEnvio();
     }
 }
+

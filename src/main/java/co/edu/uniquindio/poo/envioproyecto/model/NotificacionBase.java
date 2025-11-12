@@ -1,11 +1,11 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
-public class NotificacionBase {
+public class NotificacionBase implements INotificacion {
 
     private String fecha;
     private String hora;
     private Paquete paquete;
-    private Envios envios;
+    protected Envios envios;
 
     public NotificacionBase(Builder builder) {
         this.fecha = builder.fecha;
@@ -14,6 +14,25 @@ public class NotificacionBase {
         this.envios = builder.envios;
 
 
+    }
+
+    public NotificacionBase(String fecha, String hora, Envios envios, Paquete paquete) {
+    }
+
+
+    @Override
+    public String descripcion() {
+        return "Notificación base para el envío " + envios.getIdEnvio();
+    }
+
+    @Override
+    public String EnviarNotificacion() {
+        return "Notificación enviada (base).";
+    }
+
+    @Override
+    public String asunto() {
+        return "Aviso de envío";
     }
     public static class Builder{
         private String fecha;
