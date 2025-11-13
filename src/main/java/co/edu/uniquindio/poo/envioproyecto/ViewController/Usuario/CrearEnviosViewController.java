@@ -38,7 +38,7 @@ public class CrearEnviosViewController {
             int peso = Integer.parseInt(pesoStr);
 
 
-            Envios envios = new Envios(idEnvio, destino, peso, tamano, fecha, usuarioId,estado);
+          //  Envios envios = new Envios(idEnvio, destino, peso, tamano, fecha, usuarioId,estado);
 
             // Verifica si ya existe (similar a tu Service check)
             if (EnviosService.buscarPorId(idEnvio) != null) {

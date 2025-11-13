@@ -9,7 +9,7 @@ public class EnviosService {
 
     public static void agregarEnvio(Envios envios) {
         listaEnvios.add(envios);
-        System.out.println("Envío agregado: " + envios.getIdEnvio() + " - Estado: " + envios.getEstadoDescripcion());
+
     }
 
     public static Envios buscarPorId(String id) {
@@ -24,7 +24,7 @@ public class EnviosService {
         int index = listaEnvios.indexOf(buscarPorId(envios.getIdEnvio()));
         if (index != -1) {
             listaEnvios.set(index, envios);
-            System.out.println("Envío actualizado: " + envios.getIdEnvio() + " - Nuevo estado: " + envios.getEstadoDescripcion());
+ 
             return true;
         }
         return false;
