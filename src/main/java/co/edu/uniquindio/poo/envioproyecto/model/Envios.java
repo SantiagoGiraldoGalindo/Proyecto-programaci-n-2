@@ -50,6 +50,20 @@ public class Envios implements Cloneable {
     public EstadoEnvio getEstado() {
         return estado;
     }
+    /**
+     * Devuelve una descripción legible del estado actual del envío.
+     */
+    public String getEstadoDescripcion() {
+        if (estado == null) return "DESCONOCIDO";
+        switch (estado) {
+            case SOLICITADO: return "Solicitado";
+            case ASIGNADO: return "Asignado";
+            case ENRUTA: return "En ruta";
+            case ENTREGADO: return "Entregado";
+            case INCIDENCIA: return "Incidencia";
+            default: return estado.name();
+        }
+    }
     // Getter para descripción del estado (usa tu obtenerDescripcionEstado() para tabla)
 
 

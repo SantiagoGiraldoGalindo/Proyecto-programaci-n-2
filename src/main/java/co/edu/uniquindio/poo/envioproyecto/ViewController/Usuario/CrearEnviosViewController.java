@@ -2,7 +2,6 @@ package co.edu.uniquindio.poo.envioproyecto.ViewController.Usuario;
 
 import co.edu.uniquindio.poo.envioproyecto.App;
 import co.edu.uniquindio.poo.envioproyecto.model.Envios;
-import co.edu.uniquindio.poo.envioproyecto.model.EstadoEnvio;
 import co.edu.uniquindio.poo.envioproyecto.Controller.EnviosService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,10 +34,16 @@ public class CrearEnviosViewController {
                 return;
             }
 
-            int peso = Integer.parseInt(pesoStr);
+            int peso;
+            try {
+                peso = Integer.parseInt(pesoStr);
+            } catch (NumberFormatException nfe) {
+                mostrarMensaje("El peso debe ser un número entero.");
+                return;
+            }
 
-
-            Envios envios = new Envios(idEnvio, destino, peso, tamano, fecha, usuarioId,estado);
+            // Construir objeto Envios usando el constructor disponible
+            Envios envios = new Envios(idEnvio, destino, peso, tamano, fecha);
 
             // Verifica si ya existe (similar a tu Service check)
             if (EnviosService.buscarPorId(idEnvio) != null) {
