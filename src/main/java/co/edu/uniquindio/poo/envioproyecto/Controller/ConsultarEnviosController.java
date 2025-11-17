@@ -10,6 +10,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -26,6 +28,8 @@ public class ConsultarEnviosController implements Initializable {
     @FXML private TableColumn<Envios, String> TcPeso;
     @FXML private TableColumn<Envios, String> TcTamano;
     @FXML private TableColumn<Envios, String> TcFecha;
+    @FXML private Button BtnEntregar;
+    @FXML private Button BtnFallar;
 
     private Repartidor repartidorLogueado;
 
@@ -52,6 +56,48 @@ public class ConsultarEnviosController implements Initializable {
     public void initData(Repartidor repartidor) {
         this.repartidorLogueado = repartidor;
         cargarEnvios(repartidor);
+    }
+
+    @FXML
+    public void OnEntregar(ActionEvent event) {
+        Envios seleccionado = TvEnvios.getSelectionModel().getSelectedItem();
+        if (seleccionado == null) {
+            Alert a = new Alert(Alert.AlertType.WARNING, "Selecciona un envío para marcar como entregado.");
+            a.showAndWait();
+            return;
+        }
+
+        seleccionado.entregar();
+        boolean actualizado = EnviosService.actualizarEnvio(seleccionado);
+        if (actualizado) {
+            TvEnvios.refresh();
+            Alert a = new Alert(Alert.AlertType.INFORMATION, "Envío marcado como entregado.");
+            a.showAndWait();
+        } else {
+            Alert a = new Alert(Alert.AlertType.ERROR, "No se pudo actualizar el envío en el servicio.");
+            a.showAndWait();
+        }
+    }
+
+    @FXML
+    public void OnFallar(ActionEvent event) {
+        Envios seleccionado = TvEnvios.getSelectionModel().getSelectedItem();
+        if (seleccionado == null) {
+            Alert a = new Alert(Alert.AlertType.WARNING, "Selecciona un envío para marcar como fallado.");
+            a.showAndWait();
+            return;
+        }
+
+        seleccionado.fallar();
+        boolean actualizado = EnviosService.actualizarEnvio(seleccionado);
+        if (actualizado) {
+            TvEnvios.refresh();
+            Alert a = new Alert(Alert.AlertType.INFORMATION, "Envío marcado como fallado (incidencia).");
+            a.showAndWait();
+        } else {
+            Alert a = new Alert(Alert.AlertType.ERROR, "No se pudo actualizar el envío en el servicio.");
+            a.showAndWait();
+        }
     }
 
     @FXML

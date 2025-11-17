@@ -7,17 +7,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoginUsuarioController {
-    private static String contrasenaUsuario;
-    public static void setContrasenaUsuario(String idUsuario) {
-        contrasenaUsuario = idUsuario;
-    }
-
 
     public static boolean verificarContrasena(String passwordIngresada) {
-        if (contrasenaUsuario == null) {
-            System.out.println("⚠️ No hay contraseña configurada (usuario no registrado).");
+        if (passwordIngresada == null || passwordIngresada.isBlank()) {
+            System.out.println("⚠️ No se ingresó identificador.");
             return false;
         }
-        return contrasenaUsuario.equals(passwordIngresada);
+
+        try {
+            int id = Integer.parseInt(passwordIngresada);
+            RegistroUsuarioController reg = new RegistroUsuarioController();
+            return reg.buscarUsuarioPorId(id) != null;
+        } catch (NumberFormatException e) {
+            System.out.println("⚠️ El identificador debe ser numérico.");
+            return false;
+        }
     }
 }

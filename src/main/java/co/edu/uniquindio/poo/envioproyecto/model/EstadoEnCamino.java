@@ -25,6 +25,11 @@ public class EstadoEnCamino implements IEstadoEnvio {
     }
     
     @Override
+    public void pagar() {
+        System.out.println("No se puede marcar como pagado un envío que ya está en camino");
+    }
+    
+    @Override
     public String obtenerDescripcion() {
         return "Envío en camino";
     }

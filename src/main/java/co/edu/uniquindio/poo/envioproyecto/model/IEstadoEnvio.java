@@ -20,4 +20,9 @@ public interface IEstadoEnvio {
      * Obtiene descripción del estado
      */
     String obtenerDescripcion();
+    
+    /**
+     * Marca el envío como pagado (estado "Pagado")
+     */
+    void pagar();
 }

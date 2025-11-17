@@ -1,9 +1,10 @@
 package co.edu.uniquindio.poo.envioproyecto.ViewController.Usuario;
 
 import co.edu.uniquindio.poo.envioproyecto.App;
-import co.edu.uniquindio.poo.envioproyecto.Controller.EnviosService;
 import co.edu.uniquindio.poo.envioproyecto.Controller.PagoController;
 import co.edu.uniquindio.poo.envioproyecto.model.*;
+import co.edu.uniquindio.poo.envioproyecto.Controller.CotizacionService;
+import co.edu.uniquindio.poo.envioproyecto.Controller.EnviosService;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -64,7 +65,14 @@ public class PagarViewController implements Initializable {
             tablePagos.setItems(pagoController.getListaPagos());
         }
 
-        txtFecha.setText("2025-11-12");
+        // Mostrar la última cotización (si existe) y evitar edición manual
+        double ultima = CotizacionService.getUltimaCotizacion();
+        if (ultima > 0) {
+            txtMonto.setText(String.format(java.util.Locale.US, "%.2f", ultima));
+            txtMonto.setEditable(false);
+        }
+
+        txtFecha.setText(java.time.LocalDate.now().toString());
         lblResultado.setText("Selecciona método para procesar pago.");
     }
 
@@ -78,7 +86,10 @@ public class PagarViewController implements Initializable {
                 return;
             }
 
-            double monto = Double.parseDouble(txtMonto.getText().trim());
+            String montoRaw = txtMonto.getText() == null ? "" : txtMonto.getText().trim();
+            // Aceptar coma o punto como separador decimal
+            montoRaw = montoRaw.replace(',', '.');
+            double monto = Double.parseDouble(montoRaw);
             String fecha = txtFecha.getText().trim();
 
             if (monto <= 0 || !fecha.matches("\\d{4}-\\d{2}-\\d{2}")) {
@@ -99,6 +110,18 @@ public class PagarViewController implements Initializable {
 
             lblResultado.setText(resultado);
             lblResultado.setStyle(resultado.contains("Error") ? "-fx-text-fill: red;" : "-fx-text-fill: green;");
+
+            // Si el pago fue exitoso (no contiene 'Error'), marcar envío como pagado
+            if (!resultado.contains("Error")) {
+                String envioId = CotizacionService.getEnvioIdForPago();
+                if (envioId != null) {
+                    Envios envio = EnviosService.buscarPorId(envioId);
+                    if (envio != null) {
+                        envio.pagar();
+                        EnviosService.actualizarEnvio(envio);
+                    }
+                }
+            }
 
             txtMonto.clear();
         } catch (NumberFormatException e) {

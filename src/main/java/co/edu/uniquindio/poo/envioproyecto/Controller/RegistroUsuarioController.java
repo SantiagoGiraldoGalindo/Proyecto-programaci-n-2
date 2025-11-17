@@ -24,7 +24,7 @@ public class RegistroUsuarioController {
     }
     public Usuario buscarUsuarioPorId(int IdUsuario) {
         for (Usuario usuario : usuarios) {
-            if (usuario.getIdUsuario() == usuario.getIdUsuario()) {
+            if (usuario.getIdUsuario() == IdUsuario) {
                 return usuario;
             }
         }

@@ -3,6 +3,7 @@ package co.edu.uniquindio.poo.envioproyecto.ViewController.Usuario;
 import co.edu.uniquindio.poo.envioproyecto.App;
 import co.edu.uniquindio.poo.envioproyecto.model.Envios;
 import co.edu.uniquindio.poo.envioproyecto.Controller.EnviosService;
+import co.edu.uniquindio.poo.envioproyecto.Controller.CotizacionService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -27,7 +28,6 @@ public class CrearEnviosViewController {
             String pesoStr = TxfPeso.getText().trim();
             String tamano = TxfTamano.getText().trim();
             String fecha = TxfFecha.getText().trim();
-            String usuarioId = "user1";  // Reemplaza con usuario logueado
 
             if (idEnvio.isEmpty() || destino.isEmpty() || pesoStr.isEmpty() || tamano.isEmpty() || fecha.isEmpty()) {
                 mostrarMensaje("Completa todos los campos.");
@@ -45,11 +45,20 @@ public class CrearEnviosViewController {
             // Construir objeto Envios usando el constructor disponible
             Envios envios = new Envios(idEnvio, destino, peso, tamano, fecha);
 
+            // Asignar usuario actual al envío (si hay sesión)
+            Integer uid = co.edu.uniquindio.poo.envioproyecto.Controller.Session.getCurrentUserId();
+            if (uid != null) {
+                envios.setUsuarioId(uid);
+            }
+
             // Verifica si ya existe (similar a tu Service check)
             if (EnviosService.buscarPorId(idEnvio) != null) {
                 mostrarMensaje("Ya existe un envío con ese ID.");
             } else {
                 EnviosService.agregarEnvio(envios);
+
+                // Guardar el id del envío que se seguirá en el flujo de pago
+                CotizacionService.setEnvioIdForPago(idEnvio);
 
                 // Limpieza inline si éxito
                 TxfIdEnvio.clear();

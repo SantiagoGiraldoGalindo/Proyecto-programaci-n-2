@@ -44,12 +44,17 @@ public class LoginUsuarioViewController {
         String passwordIngresada = TxfIdUsuario.getText();
 
         if (LoginUsuarioController.verificarContrasena(passwordIngresada)) {
+            try {
+                int id = Integer.parseInt(passwordIngresada);
+                co.edu.uniquindio.poo.envioproyecto.Controller.Session.setCurrentUserId(id);
+            } catch (NumberFormatException e) {
+                // ignore, already validated in controller
+            }
             System.out.println("Inicio de sesión correcto");
-            App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/UsuarioGestion.fxml", event);
+            App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Usuario/Envios.fxml", event);
         } else {
             System.out.println(" Contraseña incorrecta o usuario no registrado");
         }
-        App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Usuario/Envios.fxml", event);
     }
 
     @FXML

@@ -40,8 +40,9 @@ public class ConsultarEnviosViewController implements Initializable {
         TcFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         TcEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));  // Muestra enum: SOLICITADO, etc.
 
-        // Cargar lista similar a RegistroUsuarioController.usuarios (todos o filtrado)
-        listaEnvios = FXCollections.observableArrayList(EnviosService.obtenerEnviosUsuario("user1"));  // Reemplaza con usuario logueado
+        // Cargar lista filtrada por el usuario actualmente logueado
+        Integer uid = co.edu.uniquindio.poo.envioproyecto.Controller.Session.getCurrentUserId();
+        listaEnvios = FXCollections.observableArrayList(EnviosService.obtenerEnviosUsuario(uid));
         TvEnvios.setItems(listaEnvios);
 
         // Log para depuración (similar a tu ejemplo)
@@ -58,8 +59,8 @@ public class ConsultarEnviosViewController implements Initializable {
         Envios envioSeleccionado = TvEnvios.getSelectionModel().getSelectedItem();
 
         if (envioSeleccionado != null) {
-            // Solo eliminar si estado permite (ej. no ENRUTA o ENTREGADO)
-            if (envioSeleccionado.getEstado() == EstadoEnvio.SOLICITADO || envioSeleccionado.getEstado() == EstadoEnvio.ASIGNADO) {
+                // Solo eliminar si estado permite (ej. no ENRUTA o ENTREGADO)
+                if (envioSeleccionado.getEstado() == EstadoEnvio.ASIGNADO) {
                 boolean eliminado = EnviosService.eliminarEnvio(envioSeleccionado.getIdEnvio());
                 if (eliminado) {
                     TvEnvios.getItems().remove(envioSeleccionado);
@@ -96,7 +97,8 @@ public class ConsultarEnviosViewController implements Initializable {
         } else {
             System.out.println("Debe seleccionar un envío para actualizar.");
             // Refresca general (muestra cambios desde PagarView, ej. SOLICITADO → ENRUTA)
-            listaEnvios.setAll(EnviosService.obtenerEnviosUsuario("user1"));
+            Integer uid2 = co.edu.uniquindio.poo.envioproyecto.Controller.Session.getCurrentUserId();
+            listaEnvios.setAll(EnviosService.obtenerEnviosUsuario(uid2));
             TvEnvios.refresh();
         }
     }

@@ -4,6 +4,9 @@ import co.edu.uniquindio.poo.envioproyecto.App;
 import co.edu.uniquindio.poo.envioproyecto.Controller.EnviosService;
 import co.edu.uniquindio.poo.envioproyecto.model.Envios;
 import co.edu.uniquindio.poo.envioproyecto.model.EstadoEnvio;
+import co.edu.uniquindio.poo.envioproyecto.model.Repartidor;
+import co.edu.uniquindio.poo.envioproyecto.model.EmpresaEnvios;
+import co.edu.uniquindio.poo.envioproyecto.model.Estado;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -38,7 +41,7 @@ public class GestionarEnviosViewController {
 
         TableColumn<Envios, String> colEstado = new TableColumn<>("Estado");
         colEstado.setCellValueFactory(cell -> new javafx.beans.property.SimpleStringProperty(
-                cell.getValue().getEstado() != null ? cell.getValue().getEstado().name() : ""));
+            cell.getValue() != null ? cell.getValue().getEstadoDescripcion() : ""));
 
         TvEnvios.getColumns().setAll(colId, colDestino, colPeso, colTamano, colEstado);
         listaEnvios = FXCollections.observableArrayList(EnviosService.listaEnvios);
@@ -49,7 +52,7 @@ public class GestionarEnviosViewController {
     @FXML public void OnActualizar(ActionEvent event) {
         Envios seleccionado = TvEnvios.getSelectionModel().getSelectedItem();
         if (seleccionado == null) return;
-        ChoiceDialog<EstadoEnvio> dialog = new ChoiceDialog<>(EstadoEnvio.SOLICITADO, EstadoEnvio.values());
+        ChoiceDialog<EstadoEnvio> dialog = new ChoiceDialog<>(EstadoEnvio.ASIGNADO, EstadoEnvio.values());
         dialog.setTitle("Cambiar estado");
         dialog.setHeaderText("Estado actual: " + (seleccionado.getEstado()!=null?seleccionado.getEstado().name():""));
         dialog.setContentText("Selecciona nuevo estado:");
@@ -59,6 +62,56 @@ public class GestionarEnviosViewController {
             EnviosService.actualizarEnvio(seleccionado);
             TvEnvios.refresh();
         }
+    }
+    @FXML public void OnAsignar(ActionEvent event) {
+        Envios seleccionado = TvEnvios.getSelectionModel().getSelectedItem();
+        if (seleccionado == null) {
+            Alert a = new Alert(Alert.AlertType.WARNING, "Selecciona un envío para asignar.");
+            a.showAndWait();
+            return;
+        }
+
+        // No asignar si el envío ya está en ruta o entregado/incidencia
+        if (seleccionado.getEstado() == EstadoEnvio.ENRUTA || seleccionado.getEstado() == EstadoEnvio.ENTREGADO || seleccionado.getEstado() == EstadoEnvio.INCIDENCIA) {
+            Alert a = new Alert(Alert.AlertType.WARNING, "No se puede asignar un envío que ya está en ruta/entregado/incidencia.");
+            a.showAndWait();
+            return;
+        }
+
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Asignar repartidor");
+        dialog.setHeaderText(null);
+        dialog.setContentText("Ingresa la cédula del repartidor:");
+        String cedula = dialog.showAndWait().orElse("");
+        if (cedula.isEmpty()) return;
+
+        Repartidor r = EmpresaEnvios.getinstancia().buscarRepartidorPorCedula(cedula);
+        if (r == null) {
+            Alert a = new Alert(Alert.AlertType.ERROR, "No existe repartidor con esa cédula.");
+            a.showAndWait();
+            return;
+        }
+
+        // Verificar estado del repartidor
+        if (r.getEstado() != Estado.ACTIVO) {
+            Alert a = new Alert(Alert.AlertType.WARNING, "No se puede asignar un repartidor inactivo o que ya esté en ruta.");
+            a.showAndWait();
+            return;
+        }
+
+        // Evitar duplicados
+        if (!r.getListEnvios().contains(seleccionado)) {
+            r.getListEnvios().add(seleccionado);
+        }
+
+        // Marcar repartidor como en ruta y el envío como 'En camino'
+        r.setEstado(Estado.ENRUTA);
+        seleccionado.enCamino();
+        EnviosService.actualizarEnvio(seleccionado);
+        TvEnvios.refresh();
+
+        Alert ok = new Alert(Alert.AlertType.INFORMATION, "Envío asignado al repartidor " + r.getNombre());
+        ok.showAndWait();
     }
     @FXML public void OnEliminar(ActionEvent event) {
         Envios seleccionado = TvEnvios.getSelectionModel().getSelectedItem();

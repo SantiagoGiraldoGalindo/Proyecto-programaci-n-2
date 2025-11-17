@@ -11,6 +11,8 @@ public class Envios implements Cloneable {
     private String tamano;
     private String fecha;
     private EstadoEnvio estado;
+    private ContextoEnvio contextoEnvio;
+    private Integer usuarioId;
 
 
 
@@ -22,7 +24,16 @@ public class Envios implements Cloneable {
         this.tamano = tamano;
         this.fecha = fecha;
 
-        this.estado = EstadoEnvio.SOLICITADO;
+        this.estado = EstadoEnvio.ENRUTA;
+        this.contextoEnvio = new ContextoEnvio(this);
+    }
+
+    public Integer getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(Integer usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     // Clone (de tu original)
@@ -37,13 +48,34 @@ public class Envios implements Cloneable {
 
     // Método para avanzar post-pago (a ENRUTA)
     public void avanzarAPostPago() {
-        this.estado = EstadoEnvio.ENRUTA;  // Cambia a En Ruta (en camino)
+        this.contextoEnvio.enCamino();
+        syncEstadoDesdeContexto();
         System.out.println("Estado cambiado a ENRUTA post-pago.");
     }
 
     // Setter para estado (usado en PagarView o actualizaciones)
     public void setEstadoEnvio(EstadoEnvio estado) {
         this.estado = estado;
+        // sincronizar contexto si es necesario
+        if (this.contextoEnvio == null) this.contextoEnvio = new ContextoEnvio(this);
+        switch (estado) {
+            case ENRUTA:
+                contextoEnvio.setEstado(new EstadoEnCamino(contextoEnvio));
+                break;
+            case ENTREGADO:
+                contextoEnvio.setEstado(new EstadoEntregado(contextoEnvio));
+                break;
+            case INCIDENCIA:
+                contextoEnvio.setEstado(new EstadoFallado(contextoEnvio));
+                break;
+            case PAGADO:
+                contextoEnvio.setEstado(new EstadoPagado(contextoEnvio));
+                break;
+            case ASIGNADO:
+            default:
+                contextoEnvio.setEstado(new EstadoEnCamino(contextoEnvio));
+                break;
+        }
     }
 
     // Getter para tabla
@@ -54,10 +86,11 @@ public class Envios implements Cloneable {
      * Devuelve una descripción legible del estado actual del envío.
      */
     public String getEstadoDescripcion() {
+        if (contextoEnvio != null) return contextoEnvio.obtenerDescripcionEstado();
         if (estado == null) return "DESCONOCIDO";
         switch (estado) {
-            case SOLICITADO: return "Solicitado";
             case ASIGNADO: return "Asignado";
+            case PAGADO: return "Pagado";
             case ENRUTA: return "En ruta";
             case ENTREGADO: return "Entregado";
             case INCIDENCIA: return "Incidencia";
@@ -78,6 +111,40 @@ public class Envios implements Cloneable {
     public void setTamano(String tamano) { this.tamano = tamano; }
     public String getFecha() { return fecha; }
     public void setFecha(String fecha) { this.fecha = fecha; }
+
+    // Métodos que delegan al contexto (patrón State)
+    public void enCamino() {
+        if (contextoEnvio == null) contextoEnvio = new ContextoEnvio(this);
+        contextoEnvio.enCamino();
+        syncEstadoDesdeContexto();
+    }
+
+    public void entregar() {
+        if (contextoEnvio == null) contextoEnvio = new ContextoEnvio(this);
+        contextoEnvio.entregar();
+        syncEstadoDesdeContexto();
+    }
+
+    public void fallar() {
+        if (contextoEnvio == null) contextoEnvio = new ContextoEnvio(this);
+        contextoEnvio.fallar();
+        syncEstadoDesdeContexto();
+    }
+
+    public void pagar() {
+        if (contextoEnvio == null) contextoEnvio = new ContextoEnvio(this);
+        contextoEnvio.pagar();
+        syncEstadoDesdeContexto();
+    }
+
+    private void syncEstadoDesdeContexto() {
+        IEstadoEnvio s = contextoEnvio.getEstado();
+        if (s instanceof EstadoEnCamino) this.estado = EstadoEnvio.ENRUTA;
+        else if (s instanceof EstadoEntregado) this.estado = EstadoEnvio.ENTREGADO;
+        else if (s instanceof EstadoFallado) this.estado = EstadoEnvio.INCIDENCIA;
+        else if (s instanceof EstadoPagado) this.estado = EstadoEnvio.PAGADO;
+        else this.estado = EstadoEnvio.ASIGNADO;
+    }
 
     @Override
     public boolean equals(Object o) {

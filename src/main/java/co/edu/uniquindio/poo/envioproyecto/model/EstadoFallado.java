@@ -27,4 +27,9 @@ public class EstadoFallado implements IEstadoEnvio {
     public String obtenerDescripcion() {
         return "Envío fallado";
     }
+
+    @Override
+    public void pagar() {
+        System.out.println("No se puede pagar un envío que falló");
+    }
 }

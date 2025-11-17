@@ -26,4 +26,9 @@ public class EstadoEntregado implements IEstadoEnvio {
     public String obtenerDescripcion() {
         return "Envío entregado";
     }
+
+    @Override
+    public void pagar() {
+        System.out.println("No se puede pagar un envío ya entregado");
+    }
 }

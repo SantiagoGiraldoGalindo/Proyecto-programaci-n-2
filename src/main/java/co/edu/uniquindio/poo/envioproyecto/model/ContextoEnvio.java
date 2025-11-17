@@ -6,7 +6,7 @@ public class ContextoEnvio {
     
     public ContextoEnvio(Envios envio) {
         this.envio = envio;
-        // Estado inicial: En Camino
+        // Estado inicial: En Camino (por defecto)
         this.estadoActual = new EstadoEnCamino(this);
     }
     
@@ -29,6 +29,14 @@ public class ContextoEnvio {
      */
     public void fallar() {
         estadoActual.fallar();
+    }
+
+    /**
+     * Marca el envío como pagado (delegado al estado actual)
+     */
+    public void pagar() {
+        // Al pagar, forzamos el estado a PAGADO
+        this.estadoActual = new EstadoPagado(this);
     }
     
     /**

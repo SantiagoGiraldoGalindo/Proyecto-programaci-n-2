@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.poo.envioproyecto.App;
-import co.edu.uniquindio.poo.envioproyecto.Controller.LoginUsuarioController;
 import co.edu.uniquindio.poo.envioproyecto.Controller.RegistroUsuarioController;
 import co.edu.uniquindio.poo.envioproyecto.ViewController.Admin.GestionarUsuariosViewController;
 import co.edu.uniquindio.poo.envioproyecto.model.MetodoPago;
@@ -78,7 +77,6 @@ public class RegistroUsuarioViewController {
             String telefono = TxfTelefono.getText();
             int idUsuario = Integer.parseInt(TxfIdUsuario.getText());
             MetodoPago metodoPago = CboxMetodoPago.getSelectionModel().getSelectedItem();
-            LoginUsuarioController.setContrasenaUsuario(String.valueOf(idUsuario));
 
             if (registroUsuarioController.RegistrarUsuario(nombre, apellido, correo, direccion, telefono, idUsuario, metodoPago)) {
 

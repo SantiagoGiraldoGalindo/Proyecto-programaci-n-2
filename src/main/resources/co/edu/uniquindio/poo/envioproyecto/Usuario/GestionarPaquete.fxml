@@ -14,7 +14,7 @@
       <TextField fx:id="TxfPeso" layoutX="95.0" layoutY="107.0" />
       <TextField fx:id="TxfVolumen" layoutX="96.0" layoutY="154.0" />
       <TextField fx:id="TxfTamano" layoutX="96.0" layoutY="200.0" />
-      <CheckBox layoutX="110.0" layoutY="275.0" mnemonicParsing="false" text="Prioridad" />
+      <CheckBox fx:id="ChkPrioridad" layoutX="110.0" layoutY="275.0" mnemonicParsing="false" text="Prioridad" />
       <Button fx:id="BtnPagar" layoutX="274.0" layoutY="329.0" mnemonicParsing="false" onAction="#OnPagar" text="Pagar" />
       <Button fx:id="BtnVolver" layoutX="515.0" layoutY="36.0" mnemonicParsing="false" onAction="#OnVolver" text="Volver" />
       <Label layoutX="29.0" layoutY="111.0" text="Peso" />

@@ -103,5 +103,13 @@ public final class EmpresaEnvios {
         listRepartidor.remove(repartidor);
     }
 
+    public Repartidor buscarRepartidorPorCedula(String cedula) {
+        if (cedula == null) return null;
+        for (Repartidor r : listRepartidor) {
+            if (cedula.equals(r.getCedula())) return r;
+        }
+        return null;
+    }
+
 
 }

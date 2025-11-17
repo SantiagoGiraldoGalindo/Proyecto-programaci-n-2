@@ -30,7 +30,14 @@ public class EnviosService {
         return false;
     }
 
-    public static ObservableList<Envios> obtenerEnviosUsuario(String usuarioId) {
-        return FXCollections.observableArrayList(listaEnvios);
+    public static ObservableList<Envios> obtenerEnviosUsuario(Integer usuarioId) {
+        if (usuarioId == null) return FXCollections.observableArrayList();
+        ObservableList<Envios> filtrados = FXCollections.observableArrayList();
+        for (Envios e : listaEnvios) {
+            if (e.getUsuarioId() != null && e.getUsuarioId().equals(usuarioId)) {
+                filtrados.add(e);
+            }
+        }
+        return filtrados;
     }
 }
