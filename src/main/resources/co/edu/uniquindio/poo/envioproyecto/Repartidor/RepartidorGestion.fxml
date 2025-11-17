@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.Admin.RepartidorGestionViewController">
+<AnchorPane fx:id="RepartidorGestion" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.Repartidor.RepartidorGestionViewController">
    <children>
       <Label layoutX="169.0" layoutY="106.0" text="Repartidor que desea hacer hoy?">
          <font>
@@ -14,6 +14,6 @@
          </font></Label>
       <Button fx:id="BtnVolver" layoutX="274.0" layoutY="320.0" mnemonicParsing="false" onAction="#OnVolver" text="Volver" />
       <Button fx:id="BtnConsultarEnv" layoutX="70.0" layoutY="255.0" mnemonicParsing="false" onAction="#OnConsultarEnv" prefHeight="39.0" prefWidth="244.0" text="Consultar Envios Asignados" />
-      <Button fx:id="BtnCambiarEstado" layoutX="349.0" layoutY="255.0" mnemonicParsing="false" onAction="#OnCambiarEstadp" prefHeight="39.0" prefWidth="178.0" text="Cambiar Estado" />
+      <Button fx:id="BtnCambiarEstado" layoutX="349.0" layoutY="255.0" mnemonicParsing="false" onAction="#OnCambiarEstado" prefHeight="39.0" prefWidth="178.0" text="Cambiar Estado" />
    </children>
 </AnchorPane>

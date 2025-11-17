@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.Repartidor.CambiarEstadoRepartidorViewController">
+   <children>
+       <Label layoutX="169.0" layoutY="106.0" text="Repartidor, cual es su estado actual?">
+           <font>
+               <Font size="18.0" />
+           </font></Label>
+      <ChoiceBox fx:id="choiceEstado" layoutX="225.0" layoutY="181.0" prefWidth="150.0" />
+       <Button layoutX="256.0" layoutY="252.0" onAction="#onGuardar" text="Guardar" />
+      <Button fx:id="volver" layoutX="263.0" layoutY="318.0" mnemonicParsing="false" onAction="#OnVolver" text="Volver" />
+
+   </children>
+</AnchorPane>

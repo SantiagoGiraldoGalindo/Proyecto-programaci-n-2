@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.Usuario.ConsultarEnviosViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.poo.envioproyecto.Controller.ConsultarEnviosController">
+
     <children>
         <TableView fx:id="TvEnvios" layoutX="27.0" layoutY="106.0" prefHeight="284.0" prefWidth="538.0">
             <columns>
-                <TableColumn fx:id="TcIdEnvio" prefWidth="75.0" text="IdEnvio" />
-                <TableColumn fx:id="TcDestino" prefWidth="75.0" text="Destino" />
-                <TableColumn fx:id="TcPeso" prefWidth="75.0" text="Peso" />
-                <TableColumn fx:id="TcTamano" prefWidth="75.0" text="Tamaño" />
-                <TableColumn fx:id="TcFecha" prefWidth="108.0" text="Fecha" />
+                <TableColumn fx:id="TcIdEnvio" prefWidth="75.0" text="IdEnvio"/>
+                <TableColumn fx:id="TcDestino" prefWidth="75.0" text="Destino"/>
+                <TableColumn fx:id="TcPeso" prefWidth="75.0" text="Peso"/>
+                <TableColumn fx:id="TcTamano" prefWidth="75.0" text="Tamaño"/>
+                <TableColumn fx:id="TcFecha" prefWidth="108.0" text="Fecha"/>
             </columns>
         </TableView>
-        <Button fx:id="BtnVolver" layoutX="523.0" layoutY="37.0" mnemonicParsing="false" onAction="#OnVolver" text="Volver" />
+
+        <Button fx:id="BtnVolver" layoutX="523.0" layoutY="37.0"
+                mnemonicParsing="false" onAction="#OnVolver" text="Volver"/>
     </children>
 </AnchorPane>

@@ -103,22 +103,5 @@ public final class EmpresaEnvios {
         listRepartidor.remove(repartidor);
     }
 
-    public void consultarRepartidor(Repartidor repartidor) {
-        for (Repartidor r : listRepartidor) {
-            if (r.getIdRepartidor() == repartidor.getIdRepartidor()) {
-                System.out.println("Repartidor encontrado: " + r.getNombre());
-                return;
-            }
-        }
-        System.out.println("Repartidor no encontrado.");
-    }
 
-    public void consultarRepartidoresDisponibles() {
-        System.out.println("Repartidores disponibles:");
-        for (Repartidor r : listRepartidor) {
-            if (r.getEstado() == Estado.ACTIVO) {
-                System.out.println(" - " + r.getNombre());
-            }
-        }
-    }
 }
