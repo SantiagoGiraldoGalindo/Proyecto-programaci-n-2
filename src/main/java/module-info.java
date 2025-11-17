@@ -27,4 +27,7 @@ module co.edu.uniquindio.poo.envioproyecto {
     opens co.edu.uniquindio.poo.envioproyecto.ViewController.Admin to javafx.fxml;
     opens co.edu.uniquindio.poo.envioproyecto.ViewController.Usuario to javafx.fxml;
     opens co.edu.uniquindio.poo.envioproyecto.ViewController.Repartidor to javafx.fxml;
+    opens co.edu.uniquindio.poo.envioproyecto.Controller to javafx.fxml;
+
+
 }

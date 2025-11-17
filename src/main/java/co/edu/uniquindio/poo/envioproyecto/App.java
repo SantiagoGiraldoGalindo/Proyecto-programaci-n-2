@@ -1,5 +1,9 @@
 package co.edu.uniquindio.poo.envioproyecto;
 
+import co.edu.uniquindio.poo.envioproyecto.model.EmpresaEnvios;
+import co.edu.uniquindio.poo.envioproyecto.model.Envios;
+import co.edu.uniquindio.poo.envioproyecto.model.Estado;
+import co.edu.uniquindio.poo.envioproyecto.model.Repartidor;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.function.Consumer;
 
 public class App extends Application {
     private Stage primaryStage;
@@ -35,6 +40,34 @@ public class App extends Application {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void cambiarVistaRepartidor(String rutaFXML, ActionEvent event,
+                                              Consumer<Object> initializer) {
+        try {
+            URL fxmlLocation = App.class.getResource(rutaFXML);
+            if (fxmlLocation == null) {
+                System.err.println("No se encontró el archivo FXML en la ruta: " + rutaFXML);
+                return;
+            }
+
+            FXMLLoader loader = new FXMLLoader(fxmlLocation);
+            Parent root = loader.load();
+
+            // Obtener controller y pasarle los datos
+            Object controller = loader.getController();
+            if (initializer != null) {
+                initializer.accept(controller);
+            }
+
+            // Cambiar la escena
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+
         } catch (IOException e) {
             e.printStackTrace();
         }

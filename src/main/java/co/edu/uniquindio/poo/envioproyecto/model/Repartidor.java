@@ -70,15 +70,4 @@ public class Repartidor {
         return listEnvios;
     }
 
-    public void consultarEnviosAsignados() {
-        for(Envios envio : listEnvios) {
-            System.out.println("ID: " + envio.getIdEnvio() + ", Destino: " + envio.getDestino());
-        }
-    }
-
-    public Estado disponibilidad() {
-        return this.getEstado();
-    }
-
-
 }
