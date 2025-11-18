@@ -1,5 +1,9 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
+/**
+ * Implementación de pago por transferencia bancaria (demo). Valida datos
+ * mínimos de cuenta y banco antes de procesar.
+ */
 public class PagoTransferencia implements IPagoStrategy {
     private String numeroCuenta;
     private String banco;

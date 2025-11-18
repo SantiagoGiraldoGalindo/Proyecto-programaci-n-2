@@ -1,5 +1,9 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
+/**
+ * Decorador que marca una notificación con prioridad. Añade prefijos y
+ * modificaciones para enfatizar que la notificación requiere atención.
+ */
 public class NotificacionConPrioridad extends NotificacionDecorator {
     public NotificacionConPrioridad(INotificacion notificacion) {
         super(notificacion);
@@ -7,7 +11,6 @@ public class NotificacionConPrioridad extends NotificacionDecorator {
 
     @Override
     public String EnviarNotificacion() {
-        // Añade [PRIORIDAD] al mensaje final
         return "[PRIORIDAD] " + notificacionDecorada.EnviarNotificacion();
     }
 

@@ -1,5 +1,11 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
+/**
+ * Interfaz que define las operaciones que un estado de envío debe soportar
+ * dentro del patrón State. Cada implementación representa el comportamiento
+ * posible para un estado concreto (por ejemplo: en camino, entregado,
+ * fallado, pagado).
+ */
 public interface IEstadoEnvio {
     /**
      * Transiciona el envío a estado "En Camino"
@@ -17,7 +23,9 @@ public interface IEstadoEnvio {
     void fallar();
     
     /**
-     * Obtiene descripción del estado
+     * Obtiene una descripción legible del estado actual.
+     *
+     * @return descripción breve del estado
      */
     String obtenerDescripcion();
     

@@ -1,5 +1,10 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
+/**
+ * Contexto que encapsula una estrategia de pago. Permite cambiar la
+ * implementación de pago en tiempo de ejecución y ejecutar el proceso de pago
+ * delegando en la estrategia seleccionada.
+ */
 public class ContextoPago {
     private IPagoStrategy estrategia;
     

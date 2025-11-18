@@ -1,5 +1,9 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
+/**
+ * Estado que indica que el envío ya fue pagado por el usuario.
+ * Desde este estado el envío puede pasar a 'En camino' para ser entregado.
+ */
 public class EstadoPagado implements IEstadoEnvio {
     private ContextoEnvio contexto;
 

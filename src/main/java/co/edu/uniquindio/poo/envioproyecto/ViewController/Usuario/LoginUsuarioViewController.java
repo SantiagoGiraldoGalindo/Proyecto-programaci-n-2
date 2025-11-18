@@ -9,6 +9,10 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller de la vista de login de usuario. Valida credenciales mínimas
+ * y establece la sesión mediante {@link co.edu.uniquindio.poo.envioproyecto.Controller.Session}.
+ */
 public class LoginUsuarioViewController {
 
     private App app;

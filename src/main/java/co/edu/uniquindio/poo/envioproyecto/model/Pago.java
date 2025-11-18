@@ -1,5 +1,9 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
+/**
+ * Modelo que representa un intento de pago en la aplicación. Contiene
+ * información mínima como id, monto, fecha y resultado.
+ */
 public class Pago {
     private String idPago;
     private double monto;

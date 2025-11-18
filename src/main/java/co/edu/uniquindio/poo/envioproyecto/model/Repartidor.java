@@ -3,6 +3,10 @@ package co.edu.uniquindio.poo.envioproyecto.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Representa un repartidor de la empresa. Mantiene información básica
+ * (nombre, cédula, correo) y una lista de envíos asignados.
+ */
 public class Repartidor {
 
     private String nombre;

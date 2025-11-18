@@ -1,5 +1,9 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
+/**
+ * Modelo que representa un usuario cliente de la plataforma. Contiene
+ * información de contacto y el método de pago preferido.
+ */
 public class Usuario {
 
     private String nombre, apellido, correo, telefono, direccion;

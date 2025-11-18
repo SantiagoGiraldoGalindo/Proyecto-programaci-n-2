@@ -5,33 +5,55 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.Usuario.RegistroUsuarioViewController">
+<AnchorPane prefHeight="422.0" prefWidth="606.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.Usuario.RegistroUsuarioViewController">
     <children>
-        <Label layoutX="36.0" layoutY="88.0" text="Nombre:">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-        <TextField fx:id="TxfNombre" layoutX="104.0" layoutY="85.0" />
-        <TextField fx:id="TxfApellido" layoutX="105.0" layoutY="134.0" />
-        <TextField fx:id="TxfCorreo" layoutX="104.0" layoutY="179.0" />
-        <TextField fx:id="TxfDireccion" layoutX="104.0" layoutY="261.0" />
-        <Label layoutX="28.0" layoutY="137.0" text="Apellido:">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="29.0" layoutY="220.0" text="IdUsuario" />
-        <Label layoutX="29.0" layoutY="265.0" text="Direccion:" />
-        <ComboBox fx:id="CboxMetodoPago" layoutX="368.0" layoutY="85.0" prefWidth="150.0" />
-        <Label layoutX="369.0" layoutY="42.0" prefHeight="18.0" prefWidth="150.0" text="Metodo de Pago" />
-        <Label layoutX="32.0" layoutY="307.0" text="Telefono" />
-        <TextField fx:id="TxfTelefono" layoutX="104.0" layoutY="303.0" />
-        <Button fx:id="BtnRegistro" layoutX="350.0" layoutY="265.0" mnemonicParsing="false" onAction="#OnRegistrar" text="Registrarse" />
-        <Button fx:id="BtnVolver" layoutX="486.0" layoutY="265.0" mnemonicParsing="false" onAction="#OnVolver" text="Volver" />
-      <TextField fx:id="TxfIdUsuario" layoutX="104.0" layoutY="216.0" />
-      <Label layoutX="37.0" layoutY="183.0" text="correo" />
+      <VBox alignment="TOP_CENTER" layoutX="146.0" layoutY="53.0" spacing="12.0">
+        <children>
+          <Label styleClass="title-label" text="Registro de usuario" />
+          <GridPane hgap="12.0" vgap="8.0">
+            <children>
+              <Label styleClass="form-label" text="Nombre" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+              <TextField fx:id="TxfNombre" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+              <Label styleClass="form-label" text="Apellido" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+              <TextField fx:id="TxfApellido" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+              <Label styleClass="form-label" text="Correo electrónico" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+              <TextField fx:id="TxfCorreo" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+              <Label styleClass="form-label" text="ID de usuario" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+              <TextField fx:id="TxfIdUsuario" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+              <Label styleClass="form-label" text="Dirección" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+              <TextField fx:id="TxfDireccion" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+              <Label styleClass="form-label" text="Teléfono" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+              <TextField fx:id="TxfTelefono" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+              <Label styleClass="form-label" text="Método de pago" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+              <ComboBox fx:id="CboxMetodoPago" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            </children>
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+          </GridPane>
+          <HBox alignment="CENTER_RIGHT" spacing="12.0">
+            <children>
+              <Button fx:id="BtnRegistro" mnemonicParsing="false" onAction="#OnRegistrar" styleClass="primary-button" text="Registrarse" />
+              <Button fx:id="BtnVolver" mnemonicParsing="false" onAction="#OnVolver" styleClass="primary-button" text="Volver" />
+            </children>
+          </HBox>
+        </children>
+      </VBox>
     </children>
 </AnchorPane>

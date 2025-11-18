@@ -1,5 +1,10 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
+/**
+ * Estado que representa un envío que ya fue entregado. Desde este estado
+ * las transiciones usuales están deshabilitadas (no es posible volver a
+ * en camino, ni marcar como fallado, ni pagar).
+ */
 public class EstadoEntregado implements IEstadoEnvio {
     private ContextoEnvio contexto;
 

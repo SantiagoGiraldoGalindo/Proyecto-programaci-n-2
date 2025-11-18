@@ -2,6 +2,10 @@ package co.edu.uniquindio.poo.envioproyecto.Controller;
 
 import co.edu.uniquindio.poo.envioproyecto.model.Tarifa;
 
+/**
+ * Servicio simple para calcular tarifas/cotizaciones de envío.
+ * Usa reglas heurísticas de demostración (distancia estimada y fórmula básica).
+ */
 public class TarifaService {
 
     /**
@@ -21,7 +25,6 @@ public class TarifaService {
             distancia = 50;
         }
 
-        // Ajuste simple: combinar peso y volumen para usar en Tarifa
         int volumenEfectivo = volumen + Math.max(0, peso / 10);
 
         Tarifa tarifa = new Tarifa(distancia, volumenEfectivo, prioridad);

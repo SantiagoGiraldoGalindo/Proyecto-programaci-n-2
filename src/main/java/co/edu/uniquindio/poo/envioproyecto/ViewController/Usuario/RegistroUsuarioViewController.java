@@ -18,6 +18,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
 
+/**
+ * Controller para la vista de registro de usuarios. Gestiona la captura
+ * de datos desde la UI y delega la creación en {@link RegistroUsuarioController}.
+ */
 public class RegistroUsuarioViewController {
         private GestionarUsuariosViewController gestionarUsuariosViewController;
         private App app;

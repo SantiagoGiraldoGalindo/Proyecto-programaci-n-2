@@ -1,5 +1,10 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
+/**
+ * Implementación de {@link IEstadoEnvio} que modela el comportamiento de
+ * un envío que se encuentra "en camino". Define qué transiciones son
+ * válidas desde este estado y las acciones asociadas.
+ */
 public class EstadoEnCamino implements IEstadoEnvio {
     private ContextoEnvio contexto;
     
@@ -9,6 +14,7 @@ public class EstadoEnCamino implements IEstadoEnvio {
     
     @Override
     public void enCamino() {
+        // No hay cambio; ya está en camino
         System.out.println("El envío ya está en camino");
     }
     
@@ -26,6 +32,7 @@ public class EstadoEnCamino implements IEstadoEnvio {
     
     @Override
     public void pagar() {
+        // En este diseño, pagar desde 'en camino' no cambia la transición
         System.out.println("No se puede marcar como pagado un envío que ya está en camino");
     }
     

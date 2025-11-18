@@ -2,6 +2,10 @@ package co.edu.uniquindio.poo.envioproyecto.model;
 
 
 
+/**
+ * Proxy que añade validaciones y control de reintentos antes de delegar
+ * el procesamiento de un pago a `ContextoPago`/`IPagoStrategy`.
+ */
 public class PagoProxy {
     private int reintentos = 0;
     private static final int MAX_REINTENTOS = 3;
@@ -14,7 +18,6 @@ public class PagoProxy {
      * @return Mensaje de resultado (error si inválido, o delegación si OK)
      */
     public String procesarPago(IPagoStrategy estrategia, double monto, String fecha) {
-        // Validaciones generales del Proxy (sin saldo fijo)
         if (monto <= 0) {
             return "Error Proxy: Monto debe ser positivo.";
         }
@@ -25,13 +28,11 @@ public class PagoProxy {
             return "Error Proxy: Máximo de reintentos (" + MAX_REINTENTOS + ") alcanzado.";
         }
 
-        // Delegar directamente al ContextoPago (envuelve la Strategy)
-        reintentos++;  // Control de fallos
+        reintentos++;  
         ContextoPago contexto = new ContextoPago(estrategia);
         return "Validación Proxy OK. " + contexto.ejecutarPago(monto, fecha);
     }
 
-    // Método helper para reset reintentos (opcional, llamar desde Controller)
     public void resetReintentos() {
         this.reintentos = 0;
     }

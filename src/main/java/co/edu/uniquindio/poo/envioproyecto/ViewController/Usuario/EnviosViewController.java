@@ -5,6 +5,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
+/**
+ * Controller de la pantalla que agrupa acciones del usuario sobre envíos
+ * (crear, consultar). Simplemente enruta a las vistas correspondientes.
+ */
 public class EnviosViewController {
 
     @FXML private Button BtnVolver;

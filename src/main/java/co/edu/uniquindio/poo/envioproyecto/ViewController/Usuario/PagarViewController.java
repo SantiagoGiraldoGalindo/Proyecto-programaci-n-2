@@ -15,6 +15,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller de la pantalla de pago. Permite seleccionar método de pago,
+ * procesar pagos via {@link co.edu.uniquindio.poo.envioproyecto.Controller.PagoController}
+ * y, en caso de éxito, marcar envíos como pagados.
+ */
 public class PagarViewController implements Initializable {
 
     @FXML private Button BtnVolver;
@@ -65,7 +70,6 @@ public class PagarViewController implements Initializable {
             tablePagos.setItems(pagoController.getListaPagos());
         }
 
-        // Mostrar la última cotización (si existe) y evitar edición manual
         double ultima = CotizacionService.getUltimaCotizacion();
         if (ultima > 0) {
             txtMonto.setText(String.format(java.util.Locale.US, "%.2f", ultima));
@@ -87,7 +91,6 @@ public class PagarViewController implements Initializable {
             }
 
             String montoRaw = txtMonto.getText() == null ? "" : txtMonto.getText().trim();
-            // Aceptar coma o punto como separador decimal
             montoRaw = montoRaw.replace(',', '.');
             double monto = Double.parseDouble(montoRaw);
             String fecha = txtFecha.getText().trim();
@@ -111,7 +114,6 @@ public class PagarViewController implements Initializable {
             lblResultado.setText(resultado);
             lblResultado.setStyle(resultado.contains("Error") ? "-fx-text-fill: red;" : "-fx-text-fill: green;");
 
-            // Si el pago fue exitoso (no contiene 'Error'), marcar envío como pagado
             if (!resultado.contains("Error")) {
                 String envioId = CotizacionService.getEnvioIdForPago();
                 if (envioId != null) {

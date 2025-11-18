@@ -3,6 +3,11 @@ package co.edu.uniquindio.poo.envioproyecto.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Singleton que representa la empresa de envíos. Mantiene listas en memoria
+ * de envíos, paquetes, pagos, ubicaciones y repartidores. Esta clase se usa
+ * como almacenamiento central en memoria para simplificar la demo y las pruebas.
+ */
 public final class EmpresaEnvios {
     private String nombre;
     private String ubicacion;

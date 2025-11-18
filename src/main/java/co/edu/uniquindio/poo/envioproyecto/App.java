@@ -21,8 +21,20 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        try {
+            co.edu.uniquindio.poo.envioproyecto.Controller.DataSeeder.seed();
+        } catch (Exception e) {
+            System.err.println("Error al sembrar datos de ejemplo: " + e.getMessage());
+        }
+
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("Inicio.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        try {
+            String css = App.class.getResource("/co/edu/uniquindio/poo/envioproyecto/styles/app.css").toExternalForm();
+            scene.getStylesheets().add(css);
+        } catch (Exception e) {
+            System.err.println("No se pudo cargar la hoja de estilos: " + e.getMessage());
+        }
         stage.setScene(scene);
         stage.show();
     }
@@ -38,7 +50,14 @@ public class App extends Application {
             FXMLLoader loader = new FXMLLoader(fxmlLocation);
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
+            Scene scene = new Scene(root);
+            try {
+                String css = App.class.getResource("/co/edu/uniquindio/poo/envioproyecto/styles/app.css").toExternalForm();
+                scene.getStylesheets().add(css);
+            } catch (Exception e) {
+                System.err.println("No se pudo cargar la hoja de estilos en cambiarVista: " + e.getMessage());
+            }
+            stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -57,15 +76,20 @@ public class App extends Application {
             FXMLLoader loader = new FXMLLoader(fxmlLocation);
             Parent root = loader.load();
 
-            // Obtener controller y pasarle los datos
             Object controller = loader.getController();
             if (initializer != null) {
                 initializer.accept(controller);
             }
 
-            // Cambiar la escena
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
+            Scene scene = new Scene(root);
+            try {
+                String css = App.class.getResource("/co/edu/uniquindio/poo/envioproyecto/styles/app.css").toExternalForm();
+                scene.getStylesheets().add(css);
+            } catch (Exception e) {
+                System.err.println("No se pudo cargar la hoja de estilos en cambiarVistaRepartidor: " + e.getMessage());
+            }
+            stage.setScene(scene);
             stage.show();
 
         } catch (IOException e) {

@@ -14,7 +14,6 @@ public class RepartidorGestionViewController {
 
     private Repartidor repartidorLogueado;
 
-    // Método que recibe el repartidor desde Login
     public void initData(Repartidor repartidor) {
         this.repartidorLogueado = repartidor;
         System.out.println("Repartidor recibido en Gestión: " + repartidor.getNombre());
@@ -32,7 +31,6 @@ public class RepartidorGestionViewController {
                 "/co/edu/uniquindio/poo/envioproyecto/Repartidor/ConsultarEnviosRepartidor.fxml",
                 event,
                 controller -> {
-                    // Pasamos el repartidor a ConsultarEnviosController
                     co.edu.uniquindio.poo.envioproyecto.Controller.ConsultarEnviosController c =
                             (co.edu.uniquindio.poo.envioproyecto.Controller.ConsultarEnviosController) controller;
 

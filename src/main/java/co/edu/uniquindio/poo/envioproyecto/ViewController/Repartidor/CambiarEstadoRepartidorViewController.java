@@ -27,7 +27,6 @@ public class CambiarEstadoRepartidorViewController implements Initializable {
         choiceEstado.getItems().addAll(Estado.values());
     }
 
-    // Este método será llamado desde RepartidorGestionViewController vía cambiarVistaRepartidor
     public void initData(Repartidor repartidor) {
         this.repartidor = repartidor;
         if (repartidor != null && repartidor.getEstado() != null) {

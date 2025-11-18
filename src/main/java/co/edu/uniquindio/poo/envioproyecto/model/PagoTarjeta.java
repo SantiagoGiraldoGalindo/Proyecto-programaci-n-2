@@ -1,5 +1,9 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
+/**
+ * Implementación de pago con tarjeta (ficticia para demo). Valida datos
+ * básicos como número y CVV antes de procesar el pago.
+ */
 public class PagoTarjeta implements IPagoStrategy {
     private String numeroTarjeta;
     private String cvv;

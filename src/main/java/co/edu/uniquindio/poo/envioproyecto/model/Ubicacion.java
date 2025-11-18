@@ -1,5 +1,8 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
+/**
+ * Representa una ubicación física (calle y ciudad) asociada a envíos.
+ */
 public class Ubicacion {
     private int idUbicacion;
     private String calle;

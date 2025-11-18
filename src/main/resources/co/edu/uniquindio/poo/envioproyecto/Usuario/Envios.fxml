@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.Usuario.EnviosViewController">
+<AnchorPane prefHeight="264.0" prefWidth="426.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.Usuario.EnviosViewController">
    <children>
-      <Label layoutX="264.0" layoutY="63.0" text="Envios">
-         <font>
-            <Font size="18.0" />
-         </font></Label>
-      <Button fx:id="BtnPedirEnvio" layoutX="144.0" layoutY="258.0" mnemonicParsing="false" onAction="#OnPedir" text="Pedir envio" />
-      <Button fx:id="BtnConsultarEnvios" layoutX="389.0" layoutY="258.0" mnemonicParsing="false" onAction="#OnConsultar" text="Consultar Envios" />
-      <Button fx:id="BtnVolver" layoutX="264.0" layoutY="324.0" mnemonicParsing="false" onAction="#OnVolver" text="Volver" />
+      <VBox alignment="TOP_CENTER" layoutX="115.0" layoutY="79.0" spacing="18.0">
+         <children>
+            <Label styleClass="header-label" text="Envíos" />
+            <HBox spacing="16.0">
+               <children>
+                  <Button fx:id="BtnPedirEnvio" mnemonicParsing="false" onAction="#OnPedir" styleClass="primary-button" text="Pedir envío" />
+                  <Button fx:id="BtnConsultarEnvios" mnemonicParsing="false" onAction="#OnConsultar" styleClass="primary-button" text="Consultar envíos" />
+               </children>
+            </HBox>
+            <Button fx:id="BtnVolver" mnemonicParsing="false" onAction="#OnVolver" styleClass="primary-button" text="Volver" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

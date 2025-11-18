@@ -6,33 +6,33 @@
 
 <VBox fx:id="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.Usuario.PagarViewController">
     <children>
-        <Label text="Formulario de Pago" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+        <Label text="Procesamiento de pago" styleClass="title-label" />
         <HBox spacing="10.0">
             <children>
-                <Label text="Método de Pago:" />
+                <Label text="Método de pago:" styleClass="form-label" />
                 <ComboBox fx:id="comboMetodoPago" prefWidth="150.0" promptText="Selecciona método" />
             </children>
         </HBox>
         <HBox spacing="10.0">
             <children>
-                <Label text="Monto: $" />
+                <Label text="Monto (COP): $" styleClass="form-label" />
                 <TextField fx:id="txtMonto" prefWidth="100.0" promptText="Ej. 150.0" />
             </children>
         </HBox>
         <HBox spacing="10.0">
             <children>
-                <Label text="Fecha (YYYY-MM-DD):" />
+                <Label text="Fecha (YYYY-MM-DD):" styleClass="form-label" />
                 <TextField fx:id="txtFecha" prefWidth="150.0" promptText="Ej. 2025-11-12" />
             </children>
         </HBox>
-        <Button fx:id="BtnProcesarPago" mnemonicParsing="false" onAction="#OnProcesarPago" text="Procesar Pago" />
-        <Label fx:id="lblResultado" style="-fx-text-fill: blue;" text="Selecciona método, ingresa monto y fecha." />
+        <Button fx:id="BtnProcesarPago" styleClass="primary-button" mnemonicParsing="false" onAction="#OnProcesarPago" text="Procesar Pago" />
+        <Label fx:id="lblResultado" style="-fx-text-fill: blue;" text="Seleccione método, ingrese monto y fecha." />
         <TableView fx:id="tablePagos" prefHeight="150.0" prefWidth="400.0">
             <columns />
         </TableView>
         <HBox spacing="10.0">
             <children>
-                <Button fx:id="BtnVolver" mnemonicParsing="false" onAction="#OnVolver" text="Volver" />
+                <Button fx:id="BtnVolver" styleClass="primary-button" mnemonicParsing="false" onAction="#OnVolver" text="Volver" />
             </children>
         </HBox>
     </children>

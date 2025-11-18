@@ -33,10 +33,8 @@ public class GestionarPaqueteViewController {
             int peso = pesoStr.isEmpty() ? 0 : Integer.parseInt(pesoStr);
             int volumen = volumenStr.isEmpty() ? 1 : Integer.parseInt(volumenStr);
 
-            // Leer prioridad desde el CheckBox en la vista
             boolean prioridad = (ChkPrioridad != null) && ChkPrioridad.isSelected();
 
-            // Usamos destino como null (o podrías extraer desde el envío activo)
             String origen = "CiudadOrigen";
             String destino = "CiudadDestino";
 

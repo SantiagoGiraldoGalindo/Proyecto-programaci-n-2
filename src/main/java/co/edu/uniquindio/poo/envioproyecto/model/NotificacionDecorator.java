@@ -1,6 +1,9 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
-
+/**
+ * Decorator base para notificaciones. Permite envolver una implementación de
+ * {@link INotificacion} y extender su comportamiento (patrón Decorator).
+ */
 public abstract class NotificacionDecorator implements INotificacion {
     protected INotificacion notificacionDecorada;
 

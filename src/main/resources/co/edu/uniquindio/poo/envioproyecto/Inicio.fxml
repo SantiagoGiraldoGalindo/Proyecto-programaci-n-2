@@ -10,22 +10,18 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
-    <Label fx:id="welcomeText" />
-   <Label text="Bienvenido">
-      <font>
-         <Font size="18.0" />
-      </font>
-   </Label>
-   <AnchorPane prefHeight="227.0" prefWidth="566.0">
+    <Label fx:id="welcomeText" text="" styleClass="header-label" />
+   <Label text="Bienvenido" styleClass="title-label" />
+   <VBox prefHeight="227.0" prefWidth="566.0" alignment="CENTER" spacing="18.0">
       <children>
-         <Button fx:id="BtnUsuario" layoutX="98.0" layoutY="114.0" mnemonicParsing="false" onAction="#OnRegistroUsuario" text="Usuario" />
-         <Button fx:id="BtnAdministrador" layoutX="257.0" layoutY="114.0" mnemonicParsing="false" onAction="#OnloginAdministrador" text="Administrador" />
-         <Button fx:id="BtnRepartidor" layoutX="422.0" layoutY="114.0" mnemonicParsing="false" onAction="#OnLoginRepartidor" text="Repartidor" />
-         <Label layoutX="235.0" layoutY="31.0" prefHeight="27.0" prefWidth="104.0" text="¿Que soy?">
-            <font>
-               <Font size="18.0" />
-            </font>
-         </Label>
+         <Label text="¿Qué soy?" styleClass="header-label" />
+         <HBox spacing="18.0" alignment="CENTER">
+            <children>
+               <Button fx:id="BtnUsuario" styleClass="primary-button" mnemonicParsing="false" onAction="#OnRegistroUsuario" text="Usuario" />
+               <Button fx:id="BtnAdministrador" styleClass="primary-button" mnemonicParsing="false" onAction="#OnloginAdministrador" text="Administrador" />
+               <Button fx:id="BtnRepartidor" styleClass="primary-button" mnemonicParsing="false" onAction="#OnLoginRepartidor" text="Repartidor" />
+            </children>
+         </HBox>
       </children>
-   </AnchorPane>
+   </VBox>
 </VBox>

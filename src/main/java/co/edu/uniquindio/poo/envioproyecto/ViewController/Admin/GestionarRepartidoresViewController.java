@@ -11,6 +11,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+/**
+ * Vista para la administración de repartidores. Permite agregar, actualizar
+ * y eliminar repartidores usando diálogos simples y delega la lógica al
+ * {@link co.edu.uniquindio.poo.envioproyecto.Controller.RepartidorGestionController}.
+ */
 public class GestionarRepartidoresViewController {
     @FXML
     private Button BtnActualizar;
@@ -45,7 +50,6 @@ public class GestionarRepartidoresViewController {
     }
 
     @FXML public void OnAgregar(ActionEvent event) {
-        // Pedir datos básicos mediante diálogos simples
         TextInputDialog idDialog = new TextInputDialog();
         idDialog.setTitle("Agregar repartidor");
         idDialog.setHeaderText(null);

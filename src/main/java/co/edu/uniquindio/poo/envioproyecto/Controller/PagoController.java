@@ -4,6 +4,10 @@ import co.edu.uniquindio.poo.envioproyecto.model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/**
+ * Controlador encargado de orquestar el procesamiento de pagos. Usa
+ * {@link PagoProxy} para validación y registra los pagos en memoria.
+ */
 public class PagoController {
     private PagoProxy pagoProxy;
     private ObservableList<Pago> listaPagos;
@@ -13,6 +17,10 @@ public class PagoController {
         this.listaPagos = FXCollections.observableArrayList();
     }
 
+    /**
+     * Procesa un pago usando el método indicado y datos del usuario.
+     * Devuelve un mensaje con el resultado (o un error).
+     */
     public String procesarPago(MetodoPago metodo, double monto, String fecha, Usuario usuario) {
         IPagoStrategy estrategia = crearEstrategia(metodo, usuario);
         if (estrategia == null) {
@@ -30,6 +38,9 @@ public class PagoController {
         return resultado;
     }
 
+    /**
+     * Fabrica una estrategia de pago de demostración según el método.
+     */
     private IPagoStrategy crearEstrategia(MetodoPago metodo, Usuario usuario) {
         String titular = (usuario != null) ? usuario.getNombre() + " " + usuario.getApellido() : "Anónimo";
         switch (metodo) {
@@ -44,6 +55,7 @@ public class PagoController {
         }
     }
 
+    /** Lista observable con los pagos procesados en la sesión. */
     public ObservableList<Pago> getListaPagos() {
         return listaPagos;
     }

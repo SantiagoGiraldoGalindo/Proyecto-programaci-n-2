@@ -18,5 +18,7 @@
       <Button fx:id="BtnVolver" layoutX="523.0" layoutY="37.0" mnemonicParsing="false" onAction="#OnVolver" text="Volver" />
       <Button fx:id="BtnActualizar" layoutX="53.0" layoutY="63.0" mnemonicParsing="false" onAction="#OnActualizar" text="Actualizar" />
       <Button fx:id="BtnEliminar" layoutX="160.0" layoutY="63.0" mnemonicParsing="false" onAction="#OnEliminar" text="Eliminar" />
+      <Button fx:id="BtnExportPdf" layoutX="267.0" layoutY="63.0" mnemonicParsing="false" onAction="#OnExportPdf" text="Exportar PDF" />
+      <Button fx:id="BtnExportCsv" layoutX="390.0" layoutY="63.0" mnemonicParsing="false" onAction="#OnExportCsv" text="Exportar CSV" />
    </children>
 </AnchorPane>

@@ -14,6 +14,7 @@ module co.edu.uniquindio.poo.envioproyecto {
     requires java.desktop;
 
     requires javafx.base;
+    requires org.apache.pdfbox;
 
 
     exports co.edu.uniquindio.poo.envioproyecto;

@@ -20,6 +20,11 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Controlador de la vista que permite a un repartidor ver sus envíos y
+ * marcarlos como entregados o con incidencia (fallados). Se integra con
+ * `EnviosService` para persistencia en memoria y con `App` para navegación.
+ */
 public class ConsultarEnviosController implements Initializable {
 
     @FXML private TableView<Envios> TvEnvios;
@@ -41,7 +46,7 @@ public class ConsultarEnviosController implements Initializable {
         TcTamano.setCellValueFactory(new PropertyValueFactory<>("tamano"));
         TcFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
 
-        // Si ya hay repartidor (porque initData ya lo puso), cargar envíos
+        
         if (repartidorLogueado != null) {
             cargarEnvios(repartidorLogueado);
         }

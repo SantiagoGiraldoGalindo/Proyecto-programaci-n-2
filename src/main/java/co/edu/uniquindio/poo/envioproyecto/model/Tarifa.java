@@ -1,5 +1,10 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
+/**
+ * Clase que calcula la tarifa de envío según distancia, volumen y prioridad.
+ * La implementación actual usa una fórmula simple para demo y puede ajustarse
+ * según reglas de negocio reales.
+ */
 public class Tarifa {
 
     private int distancia;

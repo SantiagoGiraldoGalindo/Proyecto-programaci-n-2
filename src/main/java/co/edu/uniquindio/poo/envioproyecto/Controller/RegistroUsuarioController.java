@@ -8,6 +8,10 @@ import javafx.collections.ObservableList;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controlador que gestiona el registro y consulta de usuarios en memoria.
+ * Proporciona métodos para registrar un nuevo usuario y buscarlo por id.
+ */
 public class RegistroUsuarioController {
     public static ObservableList<Usuario> usuarios = FXCollections.observableArrayList();
 

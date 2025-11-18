@@ -1,6 +1,9 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
-
+/**
+ * Notificación por SMS. Genera contenido específico para envíos y usa la
+ * funcionalidad base de {@link NotificacionBase}.
+ */
 public class SMS extends NotificacionBase {
     public SMS(String fecha, String hora, Envios envios, Paquete paquete) {
         super(fecha, hora, envios, paquete);

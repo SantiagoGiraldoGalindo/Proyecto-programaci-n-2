@@ -1,5 +1,10 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
+/**
+ * Estado que representa un envío que presentó una incidencia o fallo.
+ * Desde este estado se puede reintentar la entrega pasando a 'En camino',
+ * pero no es posible marcarlo como entregado ni pagarlo directamente.
+ */
 public class EstadoFallado implements IEstadoEnvio {
     private ContextoEnvio contexto;
     

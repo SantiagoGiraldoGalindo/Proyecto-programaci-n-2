@@ -1,5 +1,10 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
+/**
+ * Implementación base de la abstracción de notificación. Proporciona un
+ * constructor tipo Builder y comportamientos por defecto para asunto,
+ * descripción y envío que pueden ser decorados o extendidos.
+ */
 public class NotificacionBase implements INotificacion {
 
     private String fecha;

@@ -71,7 +71,6 @@ public class GestionarEnviosViewController {
             return;
         }
 
-        // No asignar si el envío ya está en ruta o entregado/incidencia
         if (seleccionado.getEstado() == EstadoEnvio.ENRUTA || seleccionado.getEstado() == EstadoEnvio.ENTREGADO || seleccionado.getEstado() == EstadoEnvio.INCIDENCIA) {
             Alert a = new Alert(Alert.AlertType.WARNING, "No se puede asignar un envío que ya está en ruta/entregado/incidencia.");
             a.showAndWait();
@@ -92,19 +91,16 @@ public class GestionarEnviosViewController {
             return;
         }
 
-        // Verificar estado del repartidor
         if (r.getEstado() != Estado.ACTIVO) {
             Alert a = new Alert(Alert.AlertType.WARNING, "No se puede asignar un repartidor inactivo o que ya esté en ruta.");
             a.showAndWait();
             return;
         }
 
-        // Evitar duplicados
         if (!r.getListEnvios().contains(seleccionado)) {
             r.getListEnvios().add(seleccionado);
         }
 
-        // Marcar repartidor como en ruta y el envío como 'En camino'
         r.setEstado(Estado.ENRUTA);
         seleccionado.enCamino();
         EnviosService.actualizarEnvio(seleccionado);

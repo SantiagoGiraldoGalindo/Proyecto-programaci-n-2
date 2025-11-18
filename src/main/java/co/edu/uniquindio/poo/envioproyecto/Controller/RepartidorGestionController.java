@@ -5,12 +5,17 @@ import co.edu.uniquindio.poo.envioproyecto.model.Repartidor;
 
 import java.util.List;
 
+/**
+ * Controlador de gestión de repartidores. Provee operaciones CRUD básicas
+ * sobre la colección de repartidores almacenada en {@link EmpresaEnvios}.
+ */
 public class RepartidorGestionController {
 
 	private static EmpresaEnvios empresa() {
 		return EmpresaEnvios.getinstancia();
 	}
 
+	/** Agrega un repartidor si su id no existe. */
 	public static boolean agregarRepartidor(Repartidor repartidor) {
 		if (buscarRepartidorPorId(repartidor.getIdRepartidor()) == null) {
 			empresa().agregarRepartidor(repartidor);
@@ -19,6 +24,7 @@ public class RepartidorGestionController {
 		return false;
 	}
 
+	/** Elimina un repartidor por id, si existe. */
 	public static boolean eliminarRepartidor(int idRepartidor) {
 		Repartidor r = buscarRepartidorPorId(idRepartidor);
 		if (r != null) {
@@ -28,6 +34,7 @@ public class RepartidorGestionController {
 		return false;
 	}
 
+	/** Actualiza campos básicos del repartidor. */
 	public static boolean actualizarRepartidor(int idRepartidor, String nombre, String cedula, String correo) {
 		Repartidor r = buscarRepartidorPorId(idRepartidor);
 		if (r != null) {
@@ -39,6 +46,7 @@ public class RepartidorGestionController {
 		return false;
 	}
 
+	/** Busca un repartidor por su identificador. */
 	public static Repartidor buscarRepartidorPorId(int idRepartidor) {
 		List<Repartidor> list = empresa().getListRepartidor();
 		for (Repartidor r : list) {

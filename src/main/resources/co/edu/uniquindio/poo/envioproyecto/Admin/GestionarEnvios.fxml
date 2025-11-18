@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.Admin.GestionarEnviosViewController">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.Admin.GestionarEnviosViewController">
    <children>
-      <TableView fx:id="TvEnvios" layoutX="54.0" layoutY="147.0" prefHeight="200.0" prefWidth="236.0">
+      <TableView fx:id="TvEnvios" layoutX="54.0" layoutY="147.0" prefHeight="200.0" prefWidth="342.0">
         <columns>
           <TableColumn prefWidth="75.0" text="C1" />
           <TableColumn prefWidth="75.0" text="C2" />
         </columns>
       </TableView>
-      <Button fx:id="BtnActualizar" layoutX="34.0" layoutY="79.0" mnemonicParsing="false" onAction="#OnActualizar" text="Actualizar" />
-      <Button fx:id="BtnEliminar" layoutX="126.0" layoutY="79.0" mnemonicParsing="false" onAction="#OnEliminar" text="Eliminar" />
-      <Button fx:id="BtnAsignar" layoutX="218.0" layoutY="79.0" mnemonicParsing="false" onAction="#OnAsignar" text="Asignar" />
-      <Button fx:id="BtnVolver" layoutX="318.0" layoutY="79.0" mnemonicParsing="false" onAction="#OnVolver" text="Volver" />
+      <Button fx:id="BtnActualizar" layoutX="20.0" layoutY="79.0" mnemonicParsing="false" onAction="#OnActualizar" styleClass="primary-button" text="Actualizar" />
+      <Button fx:id="BtnEliminar" layoutX="130.0" layoutY="79.0" mnemonicParsing="false" onAction="#OnEliminar" styleClass="primary-button" text="Eliminar" />
+      <Button fx:id="BtnAsignar" layoutX="244.0" layoutY="79.0" mnemonicParsing="false" onAction="#OnAsignar" styleClass="primary-button" text="Asignar" />
+      <Button fx:id="BtnVolver" layoutX="354.0" layoutY="79.0" mnemonicParsing="false" onAction="#OnVolver" styleClass="primary-button" text="Volver" />
    </children>
 </AnchorPane>

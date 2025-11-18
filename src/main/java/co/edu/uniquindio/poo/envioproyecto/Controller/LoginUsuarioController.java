@@ -6,8 +6,13 @@ import co.edu.uniquindio.poo.envioproyecto.model.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controlador encargado de validar el inicio de sesión de usuarios.
+ * En esta demo la validación usa el identificador numérico como contraseña.
+ */
 public class LoginUsuarioController {
 
+    /** Valida que la contraseña (id) exista y sea numérica. */
     public static boolean verificarContrasena(String passwordIngresada) {
         if (passwordIngresada == null || passwordIngresada.isBlank()) {
             System.out.println("⚠️ No se ingresó identificador.");

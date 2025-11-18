@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.Usuario.GestionarPaqueteViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.envioproyecto.ViewController.Usuario.GestionarPaqueteViewController">
    <children>
-      <Label layoutX="286.0" layoutY="36.0" text="Paquete">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="TxfPeso" layoutX="95.0" layoutY="107.0" />
-      <TextField fx:id="TxfVolumen" layoutX="96.0" layoutY="154.0" />
-      <TextField fx:id="TxfTamano" layoutX="96.0" layoutY="200.0" />
-      <CheckBox fx:id="ChkPrioridad" layoutX="110.0" layoutY="275.0" mnemonicParsing="false" text="Prioridad" />
-      <Button fx:id="BtnPagar" layoutX="274.0" layoutY="329.0" mnemonicParsing="false" onAction="#OnPagar" text="Pagar" />
-      <Button fx:id="BtnVolver" layoutX="515.0" layoutY="36.0" mnemonicParsing="false" onAction="#OnVolver" text="Volver" />
-      <Label layoutX="29.0" layoutY="111.0" text="Peso" />
-      <Label layoutX="36.0" layoutY="158.0" text="Volumen" />
-      <Label layoutX="36.0" layoutY="217.0" text="Tamaño" />
+      <Label layoutX="251.0" layoutY="27.0" styleClass="title-label" text="Datos del paquete" />
+      <TextField fx:id="TxfPeso" layoutX="181.0" layoutY="107.0" />
+      <TextField fx:id="TxfVolumen" layoutX="181.0" layoutY="154.0" />
+      <TextField fx:id="TxfTamano" layoutX="181.0" layoutY="213.0" />
+      <CheckBox fx:id="ChkPrioridad" layoutX="87.0" layoutY="289.0" mnemonicParsing="false" text="Prioridad" />
+      <Button fx:id="BtnPagar" layoutX="276.0" layoutY="317.0" mnemonicParsing="false" onAction="#OnPagar" styleClass="primary-button" text="Pagar" />
+      <Button fx:id="BtnVolver" layoutX="515.0" layoutY="36.0" mnemonicParsing="false" onAction="#OnVolver" styleClass="primary-button" text="Volver" />
+      <Label layoutX="38.0" layoutY="111.0" styleClass="form-label" text="Peso (kg)" />
+      <Label layoutX="36.0" layoutY="158.0" styleClass="form-label" text="Volumen (m³)" />
+      <Label layoutX="38.0" layoutY="217.0" styleClass="form-label" text="Dimensiones (L×A×H)" />
    </children>
 </AnchorPane>

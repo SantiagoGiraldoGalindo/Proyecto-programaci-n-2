@@ -9,6 +9,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
+/**
+ * Controller para la vista de creación de envíos. Valida campos de entrada,
+ * crea la entidad {@link Envios}, la registra en {@link EnviosService} y
+ * dirige al flujo de gestión de paquete/pago.
+ */
 public class CrearEnviosViewController {
 
     @FXML private TextField TxfIdEnvio;
@@ -42,25 +47,20 @@ public class CrearEnviosViewController {
                 return;
             }
 
-            // Construir objeto Envios usando el constructor disponible
             Envios envios = new Envios(idEnvio, destino, peso, tamano, fecha);
 
-            // Asignar usuario actual al envío (si hay sesión)
             Integer uid = co.edu.uniquindio.poo.envioproyecto.Controller.Session.getCurrentUserId();
             if (uid != null) {
                 envios.setUsuarioId(uid);
             }
 
-            // Verifica si ya existe (similar a tu Service check)
             if (EnviosService.buscarPorId(idEnvio) != null) {
                 mostrarMensaje("Ya existe un envío con ese ID.");
             } else {
                 EnviosService.agregarEnvio(envios);
 
-                // Guardar el id del envío que se seguirá en el flujo de pago
                 CotizacionService.setEnvioIdForPago(idEnvio);
 
-                // Limpieza inline si éxito
                 TxfIdEnvio.clear();
                 TxfDestino.clear();
                 TxfPeso.clear();
@@ -69,7 +69,6 @@ public class CrearEnviosViewController {
 
                 mostrarMensaje("Envío registrado exitosamente.");
 
-                // Navega a GestionarPaquete
                 App.cambiarVista("/co/edu/uniquindio/poo/envioproyecto/Usuario/GestionarPaquete.fxml", event);
             }
 

@@ -1,5 +1,9 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
+/**
+ * Implementación de pago por efectivo que valida una referencia antes
+ * de aceptar el pago.
+ */
 public class PagoEfectivo implements IPagoStrategy {
     private String referencia;
     

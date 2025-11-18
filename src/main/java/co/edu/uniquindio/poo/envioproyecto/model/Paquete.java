@@ -1,5 +1,9 @@
 package co.edu.uniquindio.poo.envioproyecto.model;
 
+/**
+ * Representa las características físicas de un paquete a enviar.
+ * Se utiliza para la cotización y para decidir prioridades de manipulación.
+ */
 public class Paquete {
 
     private int peso;
